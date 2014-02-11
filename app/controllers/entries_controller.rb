@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
 
     @now = Time.now
 
-    @entries = current_user.entries.where("date > ?", @now.beginning_of_month)
+    @entries = current_user.entries.where("date >= ?", @now.beginning_of_month)
     @total = @entries.sum &:amount
     @entries_by_category = @entries.group_by { |entry| entry.root_category }
 
