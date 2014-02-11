@@ -1,0 +1,19 @@
+%h1 Listing entries
+
+%table
+  %tr
+    %th Amount
+    %th Category
+    %th Date
+    %th
+
+    - @entries.each do |entry|
+      %tr
+        %td= entry.amount
+        %td= entry.category.name
+        %td= entry.date.to_s(:human)
+        %td= link_to 'Edit', edit_entry_path(entry)
+
+%br
+
+= link_to 'New Entry', new_entry_path

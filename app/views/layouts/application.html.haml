@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:name => 'viewport', :content => 'width=device-width, minimum-scale=1.0, maximum-scale=1.0' } 
+    %title Pfinance
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Ubuntu:400,700", "data-turbolinks-track" => true
+    = javascript_include_tag "https://www.google.com/jsapi", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    #wrapper
+      - if notice
+        %p= notice
+      - if alert
+        %p= alert
+      #top-links.clearfix
+        = link_to 'Home', root_path
+        = link_to 'Entries', entries_path
+        = link_to 'Categories', categories_path
+      #content
+        = yield

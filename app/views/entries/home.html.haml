@@ -1,0 +1,24 @@
+= render 'form'
+
+.stats
+  .total.clearfix
+    %h2 This Month
+    %span.num= @total
+  .average.clearfix
+    %div
+      %span 1 /
+      %span= @now.day
+      %span.num= (@total / @now.day).round(2)
+    %div
+      %span 1 /
+      %span= @now.end_of_month.day
+      %span.num= (@total / @now.end_of_month.day).round(2)
+
+#piechart-wrapper
+  #piechart
+
+.categories
+  - @entries_by_category.each do |category, entries|
+    %p
+      %span= category.name
+      %span= entries.sum &:amount
