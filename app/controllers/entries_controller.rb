@@ -27,7 +27,7 @@ class EntriesController < ApplicationController
       # entries.group_by { |entry| entry.category_id }
     # end
 
-    puts @entries_by_category
+    # puts @entries_by_category
 
     @entry = Entry.new
     @categories = current_user.categories
