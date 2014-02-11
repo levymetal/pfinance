@@ -1,0 +1,10 @@
+%h1 Editing entry
+
+= render 'form'
+
+= link_to 'Show', @entry
+= link_to 'Edit', edit_entry_path(@entry)
+= link_to 'Destroy', @entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+\|
+= link_to 'Back', root_path

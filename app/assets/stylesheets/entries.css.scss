@@ -1,0 +1,62 @@
+// Place all the styles related to the Entries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#content {
+  .new_entry {
+
+  }
+
+  .stats {
+    text-align: center;
+    padding-top: 20px;
+
+    .num {
+      font-size: 2em;
+    }
+
+    .total {
+      h2 {
+        margin-top: 8px;
+        display: block;
+        float: left;
+        width: 50%;
+      }
+
+      span {
+        display: block;
+        float: left;
+        width: 50%;
+      }
+    }
+
+    .average {
+      padding-top: 20px;
+
+      div {
+        width: 50%;
+        float: left;
+      }
+
+      .num {
+        display: block;
+      }
+    }
+  }
+  
+  #piechart-wrapper {
+    overflow: hidden;
+    width: 300px;
+    height: 350px;
+  }
+
+  #piechart {
+    margin: -30px -50px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .categories {
+    padding-top: 20px;
+  }
+}

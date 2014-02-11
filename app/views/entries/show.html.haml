@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @entry.user
+%p
+  %b Amount:
+  = @entry.amount
+%p
+  %b Date:
+  = @entry.date
+
+= link_to 'Edit', edit_entry_path(@entry)
+\|
+= link_to 'Back', entries_path
