@@ -33,6 +33,10 @@ class EntriesController < ApplicationController
     @categories = current_user.categories
   end
 
+  def archive
+    @entries_by_month = current_user.entries.group_by { |entry| entry.date.beginning_of_month }
+  end
+
   # GET /entries/new
   def new
     @entry = Entry.new
