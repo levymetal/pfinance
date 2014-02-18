@@ -7,11 +7,13 @@ Pfinance::Application.routes.draw do
     end
   end
 
-  if Rails.env == 'production'
-    devise_for :users, :controllers => { :registrations => 'registrations' } 
-  else
-    devise_for :users
-  end
+  # if Rails.env == 'production'
+  #   devise_for :users, :controllers => { :registrations => 'registrations' } 
+  # else
+  #   devise_for :users
+  # end
+
+  devise_for :users
 
   devise_for :views
   resources :users
