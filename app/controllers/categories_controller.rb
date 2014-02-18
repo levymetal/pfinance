@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    @categories = current_user.categories
+    @categories = current_user.categories.where(ancestry: nil)
   end
 
   # GET /categories/1/edit
