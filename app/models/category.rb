@@ -3,5 +3,5 @@ class Category < ActiveRecord::Base
 
   has_many :entries
 
-  default_scope order('ancestry ASC')
+  default_scope { order('ancestry ASC, name ASC') }
 end
