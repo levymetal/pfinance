@@ -5,15 +5,30 @@
 @import 'mixins';
 
 #categories {
+  padding: 0 .4em;
+
   a {
+    position: relative;
     display: block;
     padding: .8em 0;
     border-bottom: 1px solid #EEE;
+    
+    &:after {
+      position: absolute;
+      top: 14px;
+      right: 0;
+      display: block;
+      width: 11px;
+      height: 14px;
+      background: image-url('arrow.png');
+      background-size: cover;
+      content: ' ';
+    }
   }
 
   ul {
     a {
-      padding-left: 1.6em;
+      margin-left: 1.6em;
       color: #999;
     }
   }
