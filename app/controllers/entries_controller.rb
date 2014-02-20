@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
 
     @entries = current_user.entries.where("date >= ?", @now.beginning_of_month)
     @total = @entries.sum &:amount
-    @entries_by_category = @entries.group_by { |entry| entry.root_category }
+    @entries_by_category = @entries.group_by { |entry| entry.root_category }.sort_by { |category, entries| entries.sum &:amount }.reverse
 
     # @entries_by_category.map do |category, entries|
       # entries.group_by { |entry| entry.category_id }
