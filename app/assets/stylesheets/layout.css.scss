@@ -21,21 +21,27 @@ a {
 
 #wrapper {
   overflow: hidden;
-  margin: 0 auto;
+  margin: 44px auto 0;
   max-width: 600px;
 }
 
 #top-links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: $blue;
+  z-index: 999;
 
   a {
     display: block;
     float: left;
-    padding: .8em 0;
-    width: 33.33%;
+    padding: 10px 0;
+    width: 20%;
     background: $blue;
     color: #fff;
     text-align: center;
+    font-size: 24px;
   }
 }
 
