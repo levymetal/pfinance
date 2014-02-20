@@ -42,6 +42,11 @@ a {
     color: #fff;
     text-align: center;
     font-size: 24px;
+    opacity: .7;
+  }
+
+  a.active {
+    opacity: 1;
   }
 }
 
