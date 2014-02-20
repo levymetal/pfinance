@@ -22,5 +22,7 @@ module Pfinance
 
     # force application to not access the DB or load models when precompiling assets.
     config.assets.initialize_on_precompile = false
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end

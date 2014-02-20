@@ -1,3 +1,5 @@
+@import 'fonts';
+
 $blue: #2CCAFF;
 $red: #FF6682;
 $purple: #AB80FF;
@@ -5,3 +7,9 @@ $green: #83E88F;
 $yellow: #FFF585;
 
 $ubuntu: 'Ubuntu', sans-serif;
+
+@mixin hide-text() {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
