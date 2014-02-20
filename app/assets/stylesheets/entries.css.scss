@@ -8,8 +8,8 @@
   }
 
   .stats {
-    text-align: center;
     padding-top: 20px;
+    text-align: center;
 
     .num {
       font-size: 2em;
@@ -17,9 +17,9 @@
 
     .total {
       h2 {
-        margin-top: 8px;
         display: block;
         float: left;
+        margin-top: 8px;
         width: 50%;
       }
 
@@ -34,8 +34,8 @@
       padding-top: 20px;
 
       div {
-        width: 50%;
         float: left;
+        width: 50%;
       }
 
       .num {
@@ -72,8 +72,8 @@
     }
 
     h3 {
-      margin-top: -0.1em;
       float: right;
+      margin-top: -0.1em;
       font-size: 2em;
     }
   }
