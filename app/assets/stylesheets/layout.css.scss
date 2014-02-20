@@ -26,14 +26,14 @@ a {
 }
 
 #top-links {
-  background: #7fcaff;
+  background: $blue;
 
   a {
     display: block;
     float: left;
     padding: .8em 0;
     width: 33.33%;
-    background: #7fcaff;
+    background: $blue;
     color: #fff;
     text-align: center;
   }
