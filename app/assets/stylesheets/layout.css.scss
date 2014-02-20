@@ -1,27 +1,27 @@
 @import 'compass';
 
 body {
+  color: #666;
   font-size: 16px;
   font-family: 'Ubuntu', sans-serif;
-  color: #666;
 }
 
 a {
-  text-decoration: none;
   color: #666;
+  text-decoration: none;
 }
 
 .clearfix:after {
   display: block;
-  content: " ";
-  height: 0;
   clear: both;
+  height: 0;
+  content: " ";
 }
 
 #wrapper {
-  max-width: 320px;
-  margin: 0 auto;
   overflow: hidden;
+  margin: 0 auto;
+  max-width: 320px;
 }
 
 #top-links {
@@ -29,12 +29,12 @@ a {
 
   a {
     display: block;
-    width: 33.33%;
     float: left;
-    text-align: center;
+    padding: .8em 0;
+    width: 33.33%;
     background: #7fcaff;
     color: #fff;
-    padding: .8em 0;
+    text-align: center;
   }
 }
 
@@ -43,25 +43,25 @@ a {
 }
 
 label {
-  width: 80px;
   display: block;
   float: left;
   margin-top: 12px;
+  width: 80px;
 }
 
 input, select {
-  font-size: 16px;
-  margin: 5px 0;
-  -webkit-appearance: none;
   // -webkit-box-sizing: border-box;
   // -moz-box-sizing:border-box;
   // box-sizing:border-box;
-  border-radius: 0;
+  margin: 5px 0;
+  padding: .4em;
   outline: none;
   border: none;
+  border-radius: 0;
   background: #eee;
-  padding: .4em;
+  font-size: 16px;
   font-family: 'Ubuntu', sans-serif;
+  -webkit-appearance: none;
 }
 
 input[type="submit"] {
