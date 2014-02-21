@@ -32,6 +32,8 @@ ready = ->
         .addClass('dates')
         .removeClass('categories')
 
+    $('html, body').animate({scrollTop: $(this).offset().top - 65}, 600)
+
 
   
 drawChart = ->
