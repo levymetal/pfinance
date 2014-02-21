@@ -38,11 +38,12 @@ class EntriesController < ApplicationController
   end
 
   def month
-    time = Time.new(params[:year], params[:month])
+    @month = Time.new(params[:year], params[:month])
 
-    @entries = current_user.entries.where("date >= ? AND date <= ?", time.beginning_of_month, time.end_of_month)
+    @entries = current_user.entries.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
     @entries_by_date = @entries.group_by { |entry| entry.date }
     @entries_by_category = @entries.group_by { |entry| entry.root_category }.sort_by { |category, entries| entries.sum &:amount }.reverse
+    @total = @entries.sum &:amount
   end
 
   # GET /entries/new
