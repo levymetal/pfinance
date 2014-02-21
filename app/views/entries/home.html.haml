@@ -3,16 +3,16 @@
 .stats
   .total.clearfix
     %h2 This Month
-    %span.num= @total
+    %span.num= number_format @total
   .average.clearfix
     %div
       %span 1 /
       %span= @now.day
-      %span.num= (@total / @now.day).round(2)
+      %span.num= number_format(@total / @now.day)
     %div
       %span 1 /
       %span= @now.end_of_month.day
-      %span.num= (@total / @now.end_of_month.day).round(2)
+      %span.num= number_format(@total / @now.end_of_month.day)
 
 #piechart-wrapper
   #piechart
@@ -21,4 +21,4 @@
   - @entries_by_category.each do |category, entries|
     %div.root-category
       %h2= category.name
-      %h3= entries.sum &:amount
+      %h3{'data-amount' => (entries.sum &:amount)}= number_format entries.sum &:amount

@@ -3,4 +3,4 @@
     %li
       = link_to month_entries_path(month.strftime("%Y"), month.strftime("%m")), :class => 'clearfix' do
         %h2= month.strftime("%B %Y")
-        %h3= entries.sum &:amount
+        %h3= number_format entries.sum &:amount
