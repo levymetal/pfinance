@@ -47,8 +47,8 @@
   }
   
   #piechart-wrapper {
-    margin: 0 auto;
     overflow: hidden;
+    margin: 0 auto;
     width: 300px;
     height: 350px;
   }
@@ -94,9 +94,9 @@
   overflow: hidden;
 
   .inner {
+    @include transition(transform 0.6s);
     position: relative;
     width: 200%;
-    @include transition(transform 0.6s);
   }
 
   &.categories {
@@ -124,36 +124,36 @@
   }
 
   #month-toggle {
-    height: 34px;
+    @include border-radius(10px);
+    position: relative;
     margin: 10px 0;
     padding: 1px 0;
+    height: 34px;
     background: #ddd;
-    position: relative;
-    @include border-radius(10px);
 
     a {
       position: relative;
-      padding: 9px 0;
       display: block;
-      height: 16px;
-      width: 50%;
       float: left;
-      text-align: center;
+      padding: 9px 0;
+      width: 50%;
+      height: 16px;
       color: #999;
+      text-align: center;
       opacity: .5;
     }
 
     &:before {
       @include transition(all 0.6s);
-      position: absolute;
-      display: block;
       @include border-radius(10px);
-      background: #fefefe;
-      content: " ";
-      height: 34px;
-      left: 1px;
+      position: absolute;
       top: 1px;
       right: 50%;
+      left: 1px;
+      display: block;
+      height: 34px;
+      background: #fefefe;
+      content: " ";
     }
   }
 }
