@@ -36,8 +36,8 @@ ready = ->
   
 drawChart = ->
   categories = [['Task', 'Cats']];
-  $('.categories p').each ->
-    categories.push([$('span:first-child', this).text(), parseFloat($('span:last-child', this).text())])
+  $('.root-category').each ->
+    categories.push([$('h2', this).text(), parseFloat($('h3', this).text())])
 
   data = google.visualization.arrayToDataTable(categories);
 

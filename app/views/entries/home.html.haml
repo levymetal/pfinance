@@ -17,11 +17,8 @@
 #piechart-wrapper
   #piechart
 
-.categories
+#home-categories
   - @entries_by_category.each do |category, entries|
-    %p
-      %span= category.name
-      %span= entries.sum &:amount
-
-%br
-= link_to 'Entries', entries_path
+    %div.root-category
+      %h2= category.name
+      %h3= entries.sum &:amount
