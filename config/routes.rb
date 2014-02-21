@@ -4,6 +4,7 @@ Pfinance::Application.routes.draw do
   resources :entries do
     collection do
       get 'archive'
+      get 'archive/:year/:month' => 'entries#month', as: :month
     end
   end
 

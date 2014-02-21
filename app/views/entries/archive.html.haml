@@ -1,8 +1,6 @@
 %ul#months
   - @entries_by_month.each do |month, entries|
-    %li.clearfix
-      %h2= month.strftime("%B %Y")
-      %h3= entries.sum &:amount
-
-      / - entries.group_by { |entry| entry.root_category }.each do |c, e|
-      /   %span= c.name
+    %li
+      = link_to month_entries_path(month.strftime("%Y"), month.strftime("%m")), :class => 'clearfix' do
+        %h2= month.strftime("%B %Y")
+        %h3= entries.sum &:amount

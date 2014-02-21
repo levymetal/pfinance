@@ -37,6 +37,14 @@ class EntriesController < ApplicationController
     @entries_by_month = current_user.entries.group_by { |entry| entry.date.beginning_of_month }
   end
 
+  def month
+    time = Time.new(params[:year], params[:month])
+
+    @entries = current_user.entries.where("date >= ? AND date <= ?", time.beginning_of_month, time.end_of_month)
+    @entries_by_date = @entries.group_by { |entry| entry.date }
+    @entries_by_category = @entries.group_by { |entry| entry.root_category }.sort_by { |category, entries| entries.sum &:amount }.reverse
+  end
+
   # GET /entries/new
   def new
     @entry = Entry.new
@@ -97,6 +105,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:user_id, :amount, :date, :category_id)
+      params.require(:entry).permit(:user_id, :amount, :date, :category_id, :year, :month)
     end
 end
