@@ -1,16 +1,12 @@
-.stats
-  .total.clearfix
-    %h2= @month.strftime('%B %Y')
-    %span.num= @total
-  .average.clearfix
-    %div
-      %span &nbsp;
-      %span &nbsp;
-      %span.num &nbsp;
-    %div
-      %span 1 /
-      %span= @month.end_of_month.day
-      %span.num= (@total / @month.end_of_month.day).round(2)
+.month-stats.clearfix
+  %h2= @month.strftime('%B %Y')
+  .average
+    %span 1 /
+    %span= @month.end_of_month.day
+    %span.num= number_format(@total / @month.end_of_month.day)
+  .total
+    %span Total
+    %span.num= number_format @total
 
 #piechart-wrapper
   #piechart
@@ -26,14 +22,14 @@
         %li
           %div.clearfix.root-category
             %h2= category.name
-            %h3= entries.sum &:amount
+            %h3{'data-amount' => (entries.sum &:amount)}= number_format entries.sum &:amount
 
           %ul
             - entries.group_by { |entry| entry.category }.sort_by { |category, entries| entries.sum &:amount }.reverse.each do |subcategory, subentries|
               %li
                 %div.clearfix
                   %h2= subcategory.name
-                  %h3= subentries.sum &:amount
+                  %h3= number_format subentries.sum &:amount
 
     %ul#month-dates.month-list
       - @entries_by_date.each do |date, entries|
@@ -46,4 +42,4 @@
               %li
                 = link_to entry, :class => 'clearfix' do
                   %h2= entry.category.name
-                  %h3= entry.amount
+                  %h3= number_format entry.amount

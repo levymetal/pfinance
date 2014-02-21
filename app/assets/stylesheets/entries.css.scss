@@ -5,8 +5,8 @@
 @import 'mixins';
 
 #content {
-  .new_entry {
-
+  #new_entry {
+    padding: 10px 20px;
   }
 
   .stats {
@@ -45,6 +45,31 @@
       }
     }
   }
+
+  .month-stats {
+    padding-top: 20px;
+    text-align: center;
+
+    h2 {
+      font-size: 2em;
+    }
+
+    .average, .total {
+      float: left;
+      width: 50%;
+      padding-top: 40px;
+
+      div {
+        float: left;
+        width: 50%;
+      }
+
+      .num {
+        display: block;
+        font-size: 2em;
+      }
+    }
+  }
   
   #piechart-wrapper {
     overflow: hidden;
@@ -54,7 +79,7 @@
   }
 
   #piechart {
-    margin: -30px -62px;
+    margin: -30px -51px;
     width: 400px;
     height: 400px;
   }
@@ -68,9 +93,11 @@
   }
 
   #months {
+    // margin: 0 -20px;
+
     a {
       display: block;
-      padding: 1em 0;
+      padding: 1em 20px;
     }
 
     li {
@@ -79,11 +106,12 @@
 
     h2 {
       float: left;
+      margin-top: .9em;
     }
 
     h3 {
       float: right;
-      margin-top: -0.1em;
+      // margin-top: -0.1em;
       font-size: 2em;
     }
   }
@@ -92,9 +120,11 @@
 #months-wrapper {
   position: relative;
   overflow: hidden;
+  margin: 0 20px;
 
   .inner {
     @include transition(transform 0.6s);
+    @include translateX(0);
     position: relative;
     width: 200%;
   }
@@ -128,14 +158,14 @@
     position: relative;
     margin: 10px 0;
     padding: 1px 0;
-    height: 34px;
+    height: 24px;
     background: #ddd;
 
     a {
       position: relative;
       display: block;
       float: left;
-      padding: 9px 0;
+      padding: 4px 0;
       width: 50%;
       height: 16px;
       color: #999;
@@ -146,12 +176,13 @@
     &:before {
       @include transition(all 0.6s);
       @include border-radius(10px);
+      @include translateX(0);
       position: absolute;
       top: 1px;
       right: 50%;
       left: 1px;
       display: block;
-      height: 34px;
+      height: 24px;
       background: #fefefe;
       content: " ";
     }
