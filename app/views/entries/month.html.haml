@@ -1,3 +1,17 @@
+.stats
+  .total.clearfix
+    %h2= @month.strftime('%B %Y')
+    %span.num= @total
+  .average.clearfix
+    %div
+      %span &nbsp;
+      %span &nbsp;
+      %span.num &nbsp;
+    %div
+      %span 1 /
+      %span= @month.end_of_month.day
+      %span.num= (@total / @month.end_of_month.day).round(2)
+
 #piechart-wrapper
   #piechart
 
