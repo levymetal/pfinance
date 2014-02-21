@@ -1,3 +1,6 @@
+#piechart-wrapper
+  #piechart
+
 #months-wrapper.clearfix.categories
   #month-toggle
     %a.categories{:href => '#'} Categories
@@ -7,7 +10,7 @@
     %ul#month-categories.month-list
       - @entries_by_category.each do |category, entries|
         %li
-          %div.clearfix
+          %div.clearfix.root-category
             %h2= category.name
             %h3= entries.sum &:amount
 
