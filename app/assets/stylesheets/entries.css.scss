@@ -58,14 +58,17 @@
     height: 400px;
   }
 
-  .categories {
-    padding-top: 20px;
-  }
+  // .categories {
+  //   padding-top: 20px;
+  // }
 
   #months {
+    a {
+      display: block;
+      padding: 1em 0;
+    }
+
     li {
-      margin-top: 1em;
-      padding-bottom: 1em;
       border-bottom: 1px solid #eee;
     }
 
@@ -78,5 +81,100 @@
       margin-top: -0.1em;
       font-size: 2em;
     }
+  }
+}
+
+#months-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  .inner {
+    width: 200%;
+    @include transition(margin-left 0.6s);
+  }
+
+  &.categories {
+    #month-toggle { 
+      a.categories {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.dates {
+    #month-toggle {
+      a.dates {
+        opacity: 1;
+      }
+
+      &:before {
+        left: 50%;
+        right: 1px;
+      }
+    }
+
+    .inner {
+      margin-left: -100%;
+    }
+  }
+
+  #month-toggle {
+    height: 34px;
+    margin: 10px 0;
+    padding: 1px 0;
+    background: #ddd;
+    position: relative;
+    @include border-radius(10px);
+
+    a {
+      position: relative;
+      padding: 9px 0;
+      display: block;
+      height: 16px;
+      width: 50%;
+      float: left;
+      text-align: center;
+      color: #999;
+      opacity: .5;
+    }
+
+    &:before {
+      @include transition(all 0.6s);
+      position: absolute;
+      display: block;
+      @include border-radius(10px);
+      background: #fefefe;
+      content: " ";
+      height: 34px;
+      left: 1px;
+      top: 1px;
+      right: 50%;
+    }
+  }
+}
+
+.month-list {
+  float: left;
+  width: 50%;
+
+  div, a {
+    display: block;
+    padding: .8em 0;
+    border-bottom: 1px solid #EEE;
+  }
+
+  ul {
+    div, a {
+      margin-left: 1.6em;
+      color: #999;
+    }
+  }
+
+  h2 {
+    float: left;
+  }
+
+  h3 {
+    float: right;
   }
 }

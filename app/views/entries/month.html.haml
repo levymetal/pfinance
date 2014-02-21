@@ -1,0 +1,32 @@
+#months-wrapper.clearfix.categories
+  #month-toggle
+    %a.categories{:href => '#'} Categories
+    %a.dates{:href => '#'} Dates
+
+  .inner
+    %ul#month-categories.month-list
+      - @entries_by_category.each do |category, entries|
+        %li
+          %div.clearfix
+            %h2= category.name
+            %h3= entries.sum &:amount
+
+          %ul
+            - entries.group_by { |entry| entry.category }.sort_by { |category, entries| entries.sum &:amount }.reverse.each do |subcategory, subentries|
+              %li
+                %div.clearfix
+                  %h2= subcategory.name
+                  %h3= subentries.sum &:amount
+
+    %ul#month-dates.month-list
+      - @entries_by_date.each do |date, entries|
+        %li
+          %div.clearfix
+            %h2= date.strftime("%b %e")
+          
+          %ul
+            - entries.each do |entry|
+              %li
+                = link_to entry, :class => 'clearfix' do
+                  %h2= entry.category.name
+                  %h3= entry.amount
