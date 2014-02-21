@@ -18,7 +18,7 @@
 #months-wrapper.clearfix.categories
   #month-toggle
     %a.categories{:href => '#'} Categories
-    %a.dates{:href => '#'} Dates
+    %a.dates{:href => '#'} Days
 
   .inner
     %ul#month-categories.month-list
@@ -39,7 +39,7 @@
       - @entries_by_date.each do |date, entries|
         %li
           %div.clearfix
-            %h2= date.strftime("%b %e")
+            %h2= date.strftime("%A #{date.day.ordinalize}")
           
           %ul
             - entries.each do |entry|
