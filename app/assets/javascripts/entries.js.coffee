@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  FastClick.attach(document.body)
+
   $('#entry_amount').val('0.00')
 
   $('#entry_amount').on 'keydown', (e) ->
