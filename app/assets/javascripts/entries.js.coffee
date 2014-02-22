@@ -36,6 +36,11 @@ ready = ->
 
     $('html, body').animate({scrollTop: $(this).offset().top - 65}, 600)
 
+  $('#month-categories').on 'click', (e) ->
+    e.preventDefault()
+
+    $(this).toggleClass('show-day');
+
 
   
 drawChart = ->

@@ -193,7 +193,20 @@
   float: left;
   width: 50%;
 
+  &.show-day {
+    h3 {
+      &.total {
+        opacity: 0;
+      }
+
+      &.day {
+        opacity: 1;
+      }
+    }
+  }
+
   div, a {
+    position: relative;
     display: block;
     padding: .8em 0;
     border-bottom: 1px solid #EEE;
@@ -211,6 +224,16 @@
   }
 
   h3 {
-    float: right;
+    position: absolute;
+    right: 0;
+    @include transition(opacity 0.3s);
+
+    &.day {
+      opacity: 0;
+
+      span {
+        font-size: .7em;
+      }
+    }
   }
 }

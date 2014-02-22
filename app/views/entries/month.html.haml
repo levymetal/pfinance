@@ -22,14 +22,20 @@
         %li
           %div.clearfix.root-category
             %h2= category.name
-            %h3{'data-amount' => (entries.to_a.sum &:amount)}= number_format entries.to_a.sum &:amount
+            %h3.total{'data-amount' => (entries.to_a.sum &:amount)}= number_format entries.to_a.sum &:amount
+            %h3.day
+              = number_format ( entries.to_a.sum &:amount ) / @month.end_of_month.day
+              %span / day
 
           %ul
             - entries.group_by { |entry| entry.category }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse.each do |subcategory, subentries|
               %li
                 %div.clearfix
                   %h2= subcategory.name
-                  %h3= number_format subentries.to_a.sum &:amount
+                  %h3.total= number_format subentries.to_a.sum &:amount
+                  %h3.day
+                    = number_format ( subentries.to_a.sum &:amount ) / @month.end_of_month.day
+                    %span / day
 
     %ul#month-dates.month-list
       - @entries_by_date.each do |date, entries|
