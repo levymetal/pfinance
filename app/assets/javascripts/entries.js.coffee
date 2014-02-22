@@ -54,7 +54,8 @@ drawChart = ->
 
   options = {
     title: '',
-    colors: ['#7fcaff', '#7f97ff', '#ffd77e', '#e77fff', '#ff9c7e', '#62f5c8', '#a77fff', '#ffbd7e', '#caf562', '#ff7fb0', '#fff17e', '#f3ff7e']
+    colors: ['#6f4e3a', '#f3675d', '#ffa9a5', '#ffbb96', '#ffef88', '#ffdf68', '#c5da87', '#e2f4dc', '#3f99ed', '#e74f75', '#c83c40', '#ff9945']
+    # colors: ['#3f99ed', '#ec5078', '#ca3b47', '#e94444', '#ff993d', '#ffbf4b', '#cde171', '#487dbe', '#6f4d3a', '#ffa9a4', '#ffbb96', '#e2f4dc']
     pieSliceText: 'label',
     legend: 'none'
   };
