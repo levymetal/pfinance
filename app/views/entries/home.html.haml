@@ -21,4 +21,4 @@
   - @entries_by_category.each do |category, entries|
     %div.root-category
       %h2= category.name
-      %h3{'data-amount' => (entries.sum &:amount)}= number_format entries.sum &:amount
+      %h3{'data-amount' => (entries.to_a.sum &:amount)}= number_format entries.to_a.sum &:amount
