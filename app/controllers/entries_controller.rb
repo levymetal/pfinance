@@ -19,10 +19,9 @@ class EntriesController < ApplicationController
 
     @now = Time.now
 
-    @entries = current_user.entries.where("date >= ?", @now.beginning_of_month)
-    @total = @entries.sum &:amount
-    @entries_by_category = @entries.group_by { |entry| entry.root_category }.sort_by { |category, entries| entries.sum &:amount }.reverse
-
+    @entries = current_user.entries.includes(:category).where("date >= ?", @now.beginning_of_month)
+    @total = @entries.to_a.sum &:amount
+    @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
     # @entries_by_category.map do |category, entries|
       # entries.group_by { |entry| entry.category_id }
     # end
@@ -42,8 +41,8 @@ class EntriesController < ApplicationController
 
     @entries = current_user.entries.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
     @entries_by_date = @entries.group_by { |entry| entry.date }
-    @entries_by_category = @entries.group_by { |entry| entry.root_category }.sort_by { |category, entries| entries.sum &:amount }.reverse
-    @total = @entries.sum &:amount
+    @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
+    @total = @entries.to_a.sum &:amount
   end
 
   # GET /entries/new
