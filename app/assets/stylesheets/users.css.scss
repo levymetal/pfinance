@@ -1,3 +1,41 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sign-in {
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    font-size: 2em;
+  }
+
+  label {
+    display: none;
+  }
+
+  .remember-me {
+    margin: 20px 0;
+
+    label {
+      display: inline-block;
+      margin: 0;
+      width: auto;
+      float: none;
+      color: #999;
+    }
+
+    input {
+      display: inline-block;
+    }
+  }
+
+  #user_email, #user_password {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.2em;
+  }
+}

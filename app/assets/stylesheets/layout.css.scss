@@ -91,6 +91,10 @@ input[type="submit"], .big-button {
   text-align: center;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
 p.notice, p.alert {
   padding: 10px;
   color: #fff;
