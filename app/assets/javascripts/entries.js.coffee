@@ -5,22 +5,24 @@
 ready = ->
   FastClick.attach(document.body)
 
-  $('#entry_amount').val('0.00')
+  $entry_amount = $('#entry_amount')
 
-  $('#entry_amount').on 'keydown', (e) ->
+  $entry_amount.val('0.00') if $entry_amount.val() == ''
+
+  $entry_amount.on 'keydown', (e) ->
     e.preventDefault()
 
     # automatically control decimal points
-    current = parseFloat $(this).val()
+    current = parseFloat $entry_amount.val()
 
     if e.keyCode >= 48 and e.keyCode <= 57
       number = e.keyCode - 48
 
-      $(this).val( ( Math.round( ( current * 10 + number / 100 ) * 100 ) / 100).toFixed(2)  )
+      $entry_amount.val( ( Math.round( ( current * 10 + number / 100 ) * 100 ) / 100).toFixed(2)  )
 
     else if e.keyCode == 8
       current = current.toFixed(2).toString()
-      $(this).val( ( parseFloat( current.substring(0, current.length - 1) ) / 10 ).toFixed(2) )
+      $entry_amount.val( ( parseFloat( current.substring(0, current.length - 1) ) / 10 ).toFixed(2) )
 
   $('a', '#month-toggle').on 'click', (e) ->
     e.preventDefault() 
