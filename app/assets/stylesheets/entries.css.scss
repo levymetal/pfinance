@@ -217,6 +217,13 @@
       margin-left: 1.6em;
       color: #999;
     }
+
+    .icon-chevron-right {
+      position: absolute;
+      right: 0;
+      color: #ccc;
+      top: 0;
+    }
   }
 
   h2 {
@@ -225,7 +232,7 @@
 
   h3 {
     position: absolute;
-    right: 0;
+    right: 32px;
     @include transition(opacity 0.3s);
 
     &.day {

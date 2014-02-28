@@ -46,6 +46,7 @@
           %ul
             - entries.each do |entry|
               %li
-                = link_to entry, :class => 'clearfix' do
+                = link_to edit_entry_path(entry), :class => 'clearfix' do
                   %h2= entry.category.name
                   %h3= number_format entry.amount
+                  .icon-chevron-right
