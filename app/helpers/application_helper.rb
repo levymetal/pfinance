@@ -12,4 +12,12 @@ module ApplicationHelper
       "£#{number_with_precision(num, precision: 2)}"
     end
   end
+
+  def link_to_back
+    if request.referer
+      link_to '', request.referer, :class => 'icon-chevron-left'
+    else
+      render(:inline => "<div></div>")
+    end
+  end
 end
