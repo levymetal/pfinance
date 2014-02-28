@@ -13,10 +13,11 @@
   %body
     #wrapper
       #top-links.clearfix
-        = link_to_back
+        / = link_to_back
         = nav_link '', root_path, 'icon-home'
         = nav_link '', archive_entries_path, 'icon-calendar'
         = nav_link '', categories_path, 'icon-cabinet'
+        = link_to '', ''
         = link_to '', '', :class => 'icon-cog', :onclick => "javascript:alert('hi kitten');"
       - if notice
         %p.notice= notice
