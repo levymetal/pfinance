@@ -2,13 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#sign-in {
+#sign-in.content {
   text-align: center;
   padding: 20px;
-
-  h2 {
-    font-size: 2em;
-  }
 
   label {
     display: none;
