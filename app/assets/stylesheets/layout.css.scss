@@ -60,6 +60,15 @@ a {
   // padding: 10px 20px;
 }
 
+.content {
+  padding: 20px;
+
+  .page-title {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
 label {
   display: block;
   float: left;
@@ -93,6 +102,10 @@ input[type="submit"], .big-button {
   background: $green;
   color: #fff;
   text-align: center;
+
+  &.delete {
+    background: $red;
+  }
 }
 
 input[type="checkbox"] {

@@ -1,10 +1,6 @@
-%h1 Editing entry
+.content
+  %h1.page-title Editing entry
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @entry
-= link_to 'Edit', edit_entry_path(@entry)
-= link_to 'Destroy', @entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-\|
-= link_to 'Back', root_path
+  = link_to 'Delete', @entry, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'big-button delete'
