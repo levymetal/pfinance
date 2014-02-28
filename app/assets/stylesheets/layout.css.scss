@@ -35,7 +35,7 @@ a {
   z-index: 999;
   background: $blue;
 
-  a {
+  a, div {
     display: block;
     float: left;
     padding: 10px 0;
@@ -45,6 +45,10 @@ a {
     text-align: center;
     font-size: 24px;
     opacity: .7;
+
+    &.icon-chevron-left {
+      font-size: 1.2em;
+    }
   }
 
   a.active {

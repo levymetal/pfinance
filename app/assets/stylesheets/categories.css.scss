@@ -13,16 +13,10 @@
     padding: .8em 0;
     border-bottom: 1px solid #EEE;
     
-    &:after {
+    .icon-chevron-right {
       position: absolute;
-      top: 14px;
       right: 0;
-      display: block;
-      width: 11px;
-      height: 14px;
-      background: image-url('arrow.png');
-      background-size: cover;
-      content: ' ';
+      color: #ccc;
     }
   }
 
