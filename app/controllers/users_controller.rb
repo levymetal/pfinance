@@ -23,6 +23,11 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def settings
+    @user = current_user
+    render 'edit'
+  end
+
   # POST /users
   # POST /users.json
   def create
