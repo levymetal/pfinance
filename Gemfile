@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 gem 'pg'
 
 gem 'devise'
+gem 'cancan'
 gem 'ancestry'
 
 # Use SCSS for stylesheets

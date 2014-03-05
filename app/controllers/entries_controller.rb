@@ -1,5 +1,8 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :load_entry, only: :create
+
+  load_and_authorize_resource
 
   # GET /entries
   # GET /entries.json
@@ -13,10 +16,6 @@ class EntriesController < ApplicationController
   end
 
   def home
-    if current_user.nil?
-      return redirect_to new_user_session_path
-    end
-
     @now = Time.now
 
     @entries = current_user.entries.includes(:category).where("date >= ?", @now.beginning_of_month)
@@ -104,6 +103,11 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    # https://github.com/ryanb/cancan/issues/835
+    def load_entry
+      @entry = Entry.new(entry_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
