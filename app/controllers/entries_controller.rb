@@ -43,6 +43,9 @@ class EntriesController < ApplicationController
     @entries_by_date = @entries.group_by { |entry| entry.date }
     @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
     @total = @entries.to_a.sum &:amount
+
+    # calculate number of days based on whether this is the current month or not
+    @days = ( @month.end_of_month == Time.now.end_of_month ) ? Time.now.day : @month.end_of_month.day
   end
 
   # GET /entries/new

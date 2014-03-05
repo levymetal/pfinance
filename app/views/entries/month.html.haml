@@ -2,8 +2,8 @@
   %h2= @month.strftime('%B %Y')
   .average
     %span 1 /
-    %span= @month.end_of_month.day
-    %span.num= number_format(@total / @month.end_of_month.day)
+    %span= @days
+    %span.num= number_format(@total / @days)
   .total
     %span Total
     %span.num= number_format @total
@@ -24,7 +24,7 @@
             %h2= category.name
             %h3.total{'data-amount' => (entries.to_a.sum &:amount)}= number_format entries.to_a.sum &:amount
             %h3.day
-              = number_format ( entries.to_a.sum &:amount ) / @month.end_of_month.day
+              = number_format ( entries.to_a.sum &:amount ) / @days
               %span / day
 
           %ul
@@ -34,7 +34,7 @@
                   %h2= subcategory.name
                   %h3.total= number_format subentries.to_a.sum &:amount
                   %h3.day
-                    = number_format ( subentries.to_a.sum &:amount ) / @month.end_of_month.day
+                    = number_format ( subentries.to_a.sum &:amount ) / @days
                     %span / day
 
     %ul#month-dates.month-list
