@@ -46,6 +46,8 @@ ready = ->
 
   
 drawChart = ->
+  return unless $('.root-category').length
+
   categories = [['Task', 'Cats']];
   $('.root-category').each ->
     categories.push([$('h2', this).text(), parseFloat($('h3', this).data('amount'))])
