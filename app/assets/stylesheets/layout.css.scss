@@ -54,6 +54,15 @@ a {
 
 #content {
   // padding: 10px 20px;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -ms-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+body.loading #content {
+  opacity: .3;
 }
 
 .content {
