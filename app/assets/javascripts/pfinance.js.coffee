@@ -1,5 +1,5 @@
-$(document).on 'ready page:load', ->
+$(document).on 'ready page:load page:restore', ->
   $('body').removeClass('loading')
 
-$(document).on 'click', 'a', ->
+$(document).on 'page:before-change', ->
   $('body').addClass('loading')
