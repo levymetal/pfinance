@@ -2,8 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready = ->
+$(document).on 'ready page:load', ->
   FastClick.attach(document.body)
+
+  drawChart()
 
   $entry_amount = $('#entry_amount')
 
@@ -68,8 +70,3 @@ drawChart = ->
   chart.draw(data, options);
 
 google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-
-$(document).ready ready 
-$(document).on 'page:load', ready 
-$(document).on 'page:load', drawChart 
