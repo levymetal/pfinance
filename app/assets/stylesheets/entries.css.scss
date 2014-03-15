@@ -9,43 +9,6 @@
     padding: 10px 20px;
   }
 
-  .stats {
-    padding-top: 20px;
-    text-align: center;
-
-    .num {
-      font-size: 2em;
-    }
-
-    .total {
-      h2 {
-        display: block;
-        float: left;
-        margin-top: 8px;
-        width: 50%;
-      }
-
-      span {
-        display: block;
-        float: left;
-        width: 50%;
-      }
-    }
-
-    .average {
-      padding-top: 20px;
-
-      div {
-        float: left;
-        width: 50%;
-      }
-
-      .num {
-        display: block;
-      }
-    }
-  }
-
   .month-stats {
     padding-top: 20px;
     text-align: center;
@@ -64,10 +27,15 @@
         width: 50%;
       }
 
-      .num {
-        display: block;
-        font-size: 2em;
-      }
+      span {
+        font-size: .75em;
+        text-transform: uppercase;
+
+        &.num {
+          display: block;
+          font-size: 2em;
+        }
+      }      
     }
   }
   
@@ -232,7 +200,7 @@
 
   h3 {
     position: absolute;
-    right: 32px;
+    right: 0;
     @include transition(opacity 0.3s);
 
     &.day {
@@ -241,6 +209,12 @@
       span {
         font-size: .7em;
       }
+    }
+  }
+
+  &#month-dates {
+    h3 {
+      right: 32px;
     }
   }
 }
