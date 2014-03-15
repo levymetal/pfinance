@@ -1,8 +1,7 @@
 .month-stats.clearfix
   %h2= @month.strftime('%B %Y')
   .average
-    %span 1 /
-    %span= @days
+    %span Per Day
     %span.num= number_format(@total / @days)
   .total
     %span Total
