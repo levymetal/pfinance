@@ -45,6 +45,44 @@ $(document).on 'ready page:load', ->
 
     $(this).toggleClass('show-day');
 
+  $('#select-category').on 'click', (e) ->
+    e.preventDefault()
+
+    $('#category-overlay').addClass('visible')
+    $('html,body').animate({scrollTop: 0}, 0)
+
+    $('#category-name').val('').trigger('keyup').focus()
+
+  $options = $('option', '#entry_category_id')
+
+  select_category_option = ( $elem ) ->
+    $('#category-name').blur()
+    $('#category-overlay').removeClass('visible')
+    $('html,body').animate({scrollTop: 0}, 0)
+    $('#select-category').html( $elem.html() )
+    $('#entry_category_id').val( $elem.attr('data-value') )
+
+  $('#category-list').on 'click', 'li', (e) ->
+    e.preventDefault();
+
+    select_category_option $(this)
+
+  $('#category-name').on 'keyup', (e) ->
+    if e.keyCode == 13
+      select_category_option( $('li', '#category-list').first() ) 
+      return
+
+    term = $(this).val().toLowerCase()
+
+    $('#category-list').html('')
+    $options.each ->
+      if $(this).text().toLowerCase().indexOf( term ) != -1
+        $('#category-list').append('<li data-value="' + $(this).val() + '">' + $(this).html() + '</li>')
+
+
+
+  
+
 
   
 drawChart = ->
