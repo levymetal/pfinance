@@ -222,3 +222,45 @@
 .edit_entry {
   padding-top: 20px;
 }
+
+#entry_category_id {
+  display: none;
+}
+
+#select-category {
+  margin: 5px 0;
+  padding: .7em 0.4em;
+  display: block;
+}
+
+#category-overlay {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 20px;
+  min-height: 100%;
+  background: #fff;
+  z-index: 100;
+
+  &.visible {
+    display: block;
+  }
+
+  #category-list {
+    li {
+      padding: .8em 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+  }
+
+  #category-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    background: #eee;
+    color: #333;
+    text-align: left;
+  }
+}
