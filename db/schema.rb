@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228095225) do
+ActiveRecord::Schema.define(version: 20140411050603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140228095225) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "time_zone",              default: "Central Time (US & Canada)"
+    t.string   "currency",               default: "AUD"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

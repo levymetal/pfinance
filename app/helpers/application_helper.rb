@@ -1,4 +1,11 @@
 module ApplicationHelper
+  def currencies
+    currencies = { 'AUD' => '$', 
+                   'GBP' => '£', 
+                   'USD' => '$'
+                 }
+  end
+
   def nav_link(link_text, link_path, class_name)
     class_name += current_page?(link_path) ? ' active' : ''
 
@@ -6,11 +13,7 @@ module ApplicationHelper
   end
 
   def number_format(num)
-    if current_user.id == 1
-      "$#{number_with_precision(num, precision: 2)}"
-    else
-      "£#{number_with_precision(num, precision: 2)}"
-    end
+    "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 2)}"
   end
 
   def link_to_back

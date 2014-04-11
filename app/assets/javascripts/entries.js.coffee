@@ -51,7 +51,7 @@ $(document).on 'ready page:load', ->
     $('#category-overlay').addClass('visible')
     $('html,body').animate({scrollTop: 0}, 0)
 
-    $('#category-name').val('').trigger('keyup').focus()
+    $('#category-name').val('').trigger('keyup')
 
   $options = $('option', '#entry_category_id')
 
