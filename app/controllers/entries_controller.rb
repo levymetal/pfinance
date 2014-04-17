@@ -18,7 +18,7 @@ class EntriesController < ApplicationController
   def home
     @now = Time.now
 
-    @entries = current_user.entries.includes(:category).where("date >= ?", @now.beginning_of_month)
+    @entries = current_user.entries.includes(:category).where("date >= ?", 30.days.ago)
     @total = @entries.to_a.sum &:amount
     @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
     # @entries_by_category.map do |category, entries|
