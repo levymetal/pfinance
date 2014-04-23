@@ -3,5 +3,6 @@ class Category < ActiveRecord::Base
 
   has_many :entries
 
-  default_scope { order('ancestry ASC, name ASC') }
+  default_scope { order('name asc') } 
+  scope :recent, -> { unscoped.joins(:entries).group('categories.id').order('count(entries.category_id) desc') }
 end
