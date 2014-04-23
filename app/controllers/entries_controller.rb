@@ -28,7 +28,7 @@ class EntriesController < ApplicationController
     # puts @entries_by_category
 
     @entry = Entry.new
-    @categories = current_user.categories
+    @categories = current_user.categories.recent
   end
 
   def archive
