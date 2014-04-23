@@ -3,3 +3,7 @@ $(document).on 'ready page:load page:restore', ->
 
 $(document).on 'page:before-change', ->
   $('body').addClass('loading')
+
+$(document).on 'ready page:load', ->
+  $('form').on 'submit', ->
+    $('body').addClass('loading')
