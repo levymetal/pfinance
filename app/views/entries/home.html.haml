@@ -9,7 +9,7 @@
   %h2 Past 30 Days
   .average
     %span Per Day
-    %span.num= number_format(@total / @now.day)
+    %span.num= number_format(@total / 30)
   .total
     %span Total
     %span.num= number_format @total
