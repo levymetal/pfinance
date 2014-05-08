@@ -7,7 +7,7 @@ $(document).on 'ready page:load', ->
 
   drawChart()
 
-  $entry_amount = $('#entry_amount')
+  $entry_amount = $('#entry_from_amount')
 
   $entry_amount.val('0.00') if $entry_amount.val() == ''
 
