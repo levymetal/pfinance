@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'cancan'
 gem 'ancestry'
+gem 'nokogiri'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
