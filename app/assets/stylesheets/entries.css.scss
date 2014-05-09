@@ -7,6 +7,24 @@
 #content {
   #new_entry {
     padding: 10px 20px;
+
+    .amount {
+      float: left;
+      width: 80%;
+    }
+
+    .currency {
+      float: left;
+      width: 20%;
+    }
+
+    .category {
+      clear: both;
+    }
+
+    #entry_from_amount {
+      width: 55%;
+    }
   }
 
   .month-stats {
