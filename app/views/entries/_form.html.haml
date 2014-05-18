@@ -13,7 +13,7 @@
     = f.select :currency, all_currencies
   .field.category
     = f.label :category_id
-    = f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name')
+    = f.select :category_id, options_from_collection_for_select(@categories, 'id', :with_root)
     %a#select-category{href: '#'}
       [Select Category]
   .field
