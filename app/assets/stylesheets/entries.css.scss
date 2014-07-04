@@ -5,8 +5,20 @@
 @import 'mixins';
 
 #content {
-  #new_entry {
-    padding: 10px 20px;
+  #new_entry, .edit_entry {
+    &.new_entry {
+      padding: 10px 20px;
+
+      #entry_category_id {
+        display: none;
+      }
+    }
+
+    &.edit_entry {
+      #select-category {
+        display: none;
+      }
+    }
 
     .amount {
       float: left;
@@ -25,6 +37,8 @@
     #entry_from_amount {
       width: 55%;
     }
+    
+    
   }
 
   .month-stats {
@@ -239,10 +253,6 @@
 
 .edit_entry {
   padding-top: 20px;
-}
-
-#entry_category_id {
-  display: none;
 }
 
 #select-category {
