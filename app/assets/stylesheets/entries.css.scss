@@ -7,7 +7,7 @@
 #content {
   #new_entry, .edit_entry {
     &.new_entry {
-      padding: 10px 15px;
+      padding: 10px 15px 0;
 
       #entry_category_id {
         display: none;
@@ -85,7 +85,7 @@
     .expenses, .income {
       float: left;
       width: 50%;
-      padding-top: 20px;
+      padding-top: 10px;
 
       &.expenses {
         color: #FF6F70;
@@ -292,7 +292,7 @@
 }
 
 .edit_entry {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 #select-category {

@@ -2,8 +2,8 @@
   %h2= @month.strftime('%B %Y')
 
   #money-bar
-    .i{"data-value" => @income_total}
-    .e{"data-value" => @expenses_total}
+    .i{:style => 'width: ' + (@income_total / (@income_total + @expenses_total) * 100).to_s + '%'}
+    .e{:style => 'width: ' + (@expenses_total / (@income_total + @expenses_total) * 100).to_s + '%'}
     
   .income
     .average
