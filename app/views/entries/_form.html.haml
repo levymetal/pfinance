@@ -11,6 +11,8 @@
     = f.text_field :from_amount, :pattern => "\\d*"
   .field.currency
     = f.select :currency, all_currencies, :selected => @selected_currency
+  .field.entry-type
+    = f.select :entry_type, [['Expense', 0], ['Income', 1]]
   .field.category
     = f.label :category_id
     = f.select :category_id, options_from_collection_for_select(@categories, 'id', :with_root, (@entry.category.id if @entry.category))

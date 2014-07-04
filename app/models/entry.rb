@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
   before_save :convert_currency
 
   default_scope { order('date DESC, id DESC') }
+  scope :expenses, -> { where(entry_type: 0) }
+  scope :income, -> { where(entry_type: 1) }
 
   def convert_currency
     require 'open-uri'

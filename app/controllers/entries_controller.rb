@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = current_user.entries
+    @entries = current_user.entries.expenses
   end
 
   # GET /entries/1
@@ -18,8 +18,10 @@ class EntriesController < ApplicationController
   def home
     @now = Time.now
 
-    @entries = current_user.entries.includes(:category).where("date >= ?", 30.days.ago)
-    @total = @entries.to_a.sum &:amount
+    @entries = current_user.entries.expenses.includes(:category).where("date >= ?", 30.days.ago)
+    @income_entries = current_user.entries.income.where("date >= ?", 30.days.ago)
+    @expenses_total = @entries.to_a.sum &:amount
+    @income_total = @income_entries.to_a.sum &:amount
     @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
     # @entries_by_category = current_user.categories.roots
     # @entries_by_category.map do |category, entries|
@@ -35,16 +37,19 @@ class EntriesController < ApplicationController
   end
 
   def archive
-    @entries_by_month = current_user.entries.group_by { |entry| entry.date.beginning_of_month }
+    @entries_by_month = current_user.entries.expenses.group_by { |entry| entry.date.beginning_of_month }
   end
 
   def month
     @month = Time.new(params[:year], params[:month])
 
     @entries = current_user.entries.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
+    @expense_entries = current_user.entries.expenses.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
+    @income_entries = current_user.entries.income.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
     @entries_by_date = @entries.group_by { |entry| entry.date }
     @entries_by_category = @entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
-    @total = @entries.to_a.sum &:amount
+    @expenses_total = @expense_entries.to_a.sum &:amount
+    @income_total = @income_entries.to_a.sum &:amount
 
     # calculate number of days based on whether this is the current month or not
     @days = ( @month.end_of_month == Time.now.end_of_month ) ? Time.now.day : @month.end_of_month.day
@@ -117,6 +122,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:user_id, :from_amount, :currency, :date, :category_id, :year, :month)
+      params.require(:entry).permit(:user_id, :from_amount, :currency, :date, :category_id, :entry_type, :year, :month)
     end
 end

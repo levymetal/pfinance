@@ -1,11 +1,24 @@
 .month-stats.clearfix
   %h2= @month.strftime('%B %Y')
-  .average
-    %span Per Day
-    %span.num= number_format(@total / @days)
-  .total
-    %span Total
-    %span.num= number_format @total
+
+  #money-bar
+    .i{"data-value" => @income_total}
+    .e{"data-value" => @expenses_total}
+    
+  .income
+    .average
+      %span Per Day
+      %span.num= number_format(@income_total / @days)
+    .total
+      %span Total
+      %span.num= number_format @income_total
+  .expenses
+    .average
+      %span Per Day
+      %span.num= number_format(@expenses_total / @days)
+    .total
+      %span Total
+      %span.num= number_format @expenses_total
 
 #piechart-wrapper
   #piechart
