@@ -6,7 +6,7 @@ class Category < ActiveRecord::Base
 
   # default_scope includes(:ancestry)
   default_scope { order('name asc') } 
-  scope :recent, -> { joins("LEFT JOIN entries ON entries.category_id = categories.id").group('categories.id').reorder('count(entries.category_id) desc') }
+  scope :recent, -> { joins("LEFT JOIN (SELECT category_id FROM entries LIMIT 100) limited_entries ON limited_entries.category_id = categories.id").group('categories.id').reorder('count(limited_entries.category_id) desc') }
 
   def with_root
     self.parent ? name + ' [' + parent.name + ']' : name
