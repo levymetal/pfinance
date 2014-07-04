@@ -30,6 +30,8 @@ class EntriesController < ApplicationController
 
     @entry = Entry.new
     @categories = current_user.categories.recent
+
+    @selected_currency = current_user.use_last_currency ? current_user.entries.first.currency : current_user.currency
   end
 
   def archive
@@ -57,6 +59,8 @@ class EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
     @categories = current_user.categories
+
+    @selected_currency = @entry.currency
   end
 
   # POST /entries

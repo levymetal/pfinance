@@ -18,5 +18,12 @@
     = f.label :currency
     = f.select :currency, [['AUD'], ['GBP'], ['USD']]
 
+  .field
+    = f.label :use_last_currency
+    = f.check_box :use_last_currency
+
+    %p
+      Ticking this box uses the last used currency for new entries instead of the default currency. This is useful for travelling to avoid changing the currency for every new entry.
+
   .actions
     = f.submit 'Save'
