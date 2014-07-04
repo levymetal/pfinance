@@ -7,12 +7,25 @@
 
 .month-stats.clearfix
   %h2 Past 30 Days
-  .average
-    %span Per Day
-    %span.num= number_format(@total / 30)
-  .total
-    %span Total
-    %span.num= number_format @total
+  
+  #money-bar
+    .i{:style => 'width: ' + (@income_total / (@income_total + @expenses_total) * 100).to_s + '%'}
+    .e{:style => 'width: ' + (@expenses_total / (@income_total + @expenses_total) * 100).to_s + '%'}
+
+  .income
+    .average
+      %span Per Day
+      %span.num= number_format(@income_total / 30)
+    .total
+      %span Total
+      %span.num= number_format @income_total
+  .expenses
+    .average
+      %span Per Day
+      %span.num= number_format(@expenses_total / 30)
+    .total
+      %span Total
+      %span.num= number_format @expenses_total
 
 #piechart-wrapper
   #piechart

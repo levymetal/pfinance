@@ -7,7 +7,7 @@
 #content {
   #new_entry, .edit_entry {
     &.new_entry {
-      padding: 10px 20px;
+      padding: 10px 15px;
 
       #entry_category_id {
         display: none;
@@ -22,12 +22,18 @@
 
     .amount {
       float: left;
-      width: 80%;
+      // width: 80%;
     }
 
     .currency {
       float: left;
-      width: 20%;
+      width: 52px;
+      margin-right: 4px;
+    }
+
+    .entry-type {
+      float: left;
+      width: 73px;
     }
 
     .category {
@@ -35,7 +41,8 @@
     }
 
     #entry_from_amount {
-      width: 55%;
+      width: 64px;
+      margin-right: 4px;
     }
     
     
@@ -49,25 +56,58 @@
       font-size: 2em;
     }
 
-    .average, .total {
+    #money-bar {
+      margin-top: 20px;
+      position: relative;
+      height: 15px;
+
+      .i, .e {
+        position: absolute;
+        top: 0;
+        // width: 100%;
+        height: 100%;
+
+        &.i {
+          background: #8ECC55;
+        }
+
+        &.e {
+          background: #FF6F70;
+          right: 0;
+        }
+
+        &.front {
+          z-index: 1;
+        }
+      }
+    }
+
+    .expenses, .income {
       float: left;
       width: 50%;
-      padding-top: 40px;
+      padding-top: 20px;
 
-      div {
-        float: left;
-        width: 50%;
+      &.expenses {
+        color: #FF6F70;
       }
 
-      span {
-        font-size: .75em;
-        text-transform: uppercase;
+      &.income {
+        color: #8ECC55;
+      }
 
-        &.num {
-          display: block;
-          font-size: 2em;
-        }
-      }      
+      .average, .total {
+        padding-top: 10px;
+
+        span {
+          font-size: .75em;
+          text-transform: uppercase;
+
+          &.num {
+            display: block;
+            font-size: 2em;
+          }
+        }      
+      }
     }
   }
   
@@ -256,9 +296,11 @@
 }
 
 #select-category {
-  margin: 5px 0;
+  margin: 5px 0 5px 80px;
   padding: .7em 0.4em;
   display: block;
+  color: #000;
+  background: #eee;
 }
 
 #category-overlay {
