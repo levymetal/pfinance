@@ -128,8 +128,9 @@
   //   padding-top: 20px;
   // }
 
-  #home-categories {
-    display: none;
+  #home-category-wrapper {
+    margin-top: 10px;
+    padding: 20px;
   }
 
   #months {
@@ -161,6 +162,11 @@
   position: relative;
   overflow: hidden;
   margin: 0 20px;
+
+  .month-list {
+    float: left;
+    width: 50%;
+  }
 
   .inner {
     @include transition(transform 0.6s);
@@ -196,7 +202,7 @@
   #month-toggle {
     @include border-radius(10px);
     position: relative;
-    margin: 10px 0;
+    margin: 30px 0 20px;
     padding: 1px 0;
     height: 24px;
     background: #ddd;
@@ -230,22 +236,7 @@
 }
 
 .month-list {
-  float: left;
-  width: 50%;
-
-  &.show-day {
-    h3 {
-      &.total {
-        opacity: 0;
-      }
-
-      &.day {
-        opacity: 1;
-      }
-    }
-  }
-
-  div, a {
+  a {
     position: relative;
     display: block;
     padding: .8em 0;
@@ -253,16 +244,9 @@
   }
 
   ul {
-    div, a {
+    a {
       margin-left: 1.6em;
       color: #999;
-    }
-
-    .icon-chevron-right {
-      position: absolute;
-      right: 0;
-      color: #ccc;
-      top: 0;
     }
   }
 
@@ -276,17 +260,83 @@
     @include transition(opacity 0.3s);
 
     &.day {
-      opacity: 0;
-
       span {
         font-size: .7em;
       }
     }
   }
 
+  &#month-categories {
+    .root-category, .sub-category {
+      background: rgba(255, 179, 44, 0.2);
+      padding: 10px;
+      position: relative;
+      margin-bottom: 10px;
+
+      &.sub-category {
+        font-size: .8em;
+      }
+    }
+
+    .percentage-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: rgba(255, 179, 44, 0.32);
+    }
+
+    h2, h3 {
+      position: relative;
+    }
+  
+    .name {
+      font-weight: bold;
+      margin-bottom: .3em;
+    }
+
+    .percentage {
+      float: right;
+      font-weight: bold;
+    }
+
+    .total {
+      float: left;
+      clear: both;
+    }
+
+    .day {
+      float: right;
+    }
+
+    ul {
+      display: none;
+    }
+
+    li.show-sub-categories {
+      ul {
+        display: block;
+      }
+    }
+  }
+
   &#month-dates {
+    div {
+      position: relative;
+      display: block;
+      padding: .8em 0;
+      border-bottom: 1px solid #EEE;
+    }
+
     h3 {
       right: 32px;
+    }
+
+    .icon-chevron-right {
+      position: absolute;
+      right: 0;
+      color: #ccc;
+      top: 0;
     }
   }
 }
