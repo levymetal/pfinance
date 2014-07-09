@@ -5,7 +5,7 @@
 $(document).on 'ready page:load', ->
   FastClick.attach(document.body)
 
-  drawChart()
+  # drawChart()
 
   $entry_amount = $('#entry_from_amount')
 
@@ -40,10 +40,10 @@ $(document).on 'ready page:load', ->
 
     $('html, body').animate({scrollTop: $(this).offset().top - 65}, 600)
 
-  $('#month-categories').on 'click', (e) ->
+  $('.root-category', '#month-categories').on 'click', (e) ->
     e.preventDefault()
 
-    $(this).toggleClass('show-day');
+    $(this).closest('li').toggleClass('show-sub-categories');
 
   $('#select-category').on 'click', (e) ->
     e.preventDefault()
