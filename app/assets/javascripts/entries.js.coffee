@@ -78,33 +78,3 @@ $(document).on 'ready page:load', ->
     $options.each ->
       if $(this).text().toLowerCase().indexOf( term ) != -1
         $('#category-list').append('<li data-value="' + $(this).val() + '">' + $(this).html() + '</li>')
-
-
-
-  
-
-
-  
-drawChart = ->
-  return unless $('.root-category').length
-
-  categories = [['Task', 'Cats']];
-  $('.root-category').each ->
-    categories.push([$('h2', this).text(), parseFloat($('h3', this).data('amount'))])
-
-  data = google.visualization.arrayToDataTable(categories);
-
-  # console.log(categories)
-
-  options = {
-    title: '',
-    colors: ['#6f4e3a', '#f3675d', '#ffa9a5', '#ffbb96', '#ffef88', '#ffdf68', '#c5da87', '#e2f4dc', '#3f99ed', '#e74f75', '#c83c40', '#ff9945']
-    # colors: ['#3f99ed', '#ec5078', '#ca3b47', '#e94444', '#ff993d', '#ffbf4b', '#cde171', '#487dbe', '#6f4d3a', '#ffa9a4', '#ffbb96', '#e2f4dc']
-    pieSliceText: 'label',
-    legend: 'none'
-  };
-
-  chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-
-google.load("visualization", "1", {packages:["corechart"]});
