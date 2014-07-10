@@ -49,7 +49,7 @@
   }
 
   .month-stats {
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
 
     h2 {
@@ -113,7 +113,7 @@
 
   #home-category-wrapper {
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
   }
 
   #months {
@@ -144,7 +144,7 @@
 #months-wrapper {
   position: relative;
   overflow: hidden;
-  margin: 0 20px;
+  margin: 0 10px;
 
   .month-list {
     float: left;
@@ -252,9 +252,9 @@
   &#month-categories {
     .root-category, .sub-category {
       background: rgba(255, 179, 44, 0.2);
-      padding: 10px;
+      padding: 7px;
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
 
       &.sub-category {
         font-size: .8em;
