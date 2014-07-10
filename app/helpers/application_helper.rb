@@ -13,7 +13,11 @@ module ApplicationHelper
   end
 
   def number_format(num)
-    "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 2)}"
+    if num < 10
+      "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 2)}"
+    else
+      "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 0)}"
+    end
   end
 
   def link_to_back
