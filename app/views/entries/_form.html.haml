@@ -5,21 +5,24 @@
       %ul
         - @entry.errors.full_messages.each do |msg|
           %li= msg
-
-  .field.amount
-    = f.label :from_amount, 'Amount'
-    = f.text_field :from_amount, :pattern => "\\d*"
-  .field.currency
-    = f.select :currency, all_currencies, :selected => @selected_currency
-  .field.entry-type
-    = f.select :entry_type, [['Expense', 0], ['Income', 1]]
-  .field.category
-    = f.label :category_id
-    = f.select :category_id, options_from_collection_for_select(@categories, 'id', :with_root, (@entry.category.id if @entry.category))
-    %a#select-category{href: '#'}
-      [Select Category]
-  .field
-    = f.label :date
-    = f.date_select :date
+  
+  .row.clearfix
+    .field.amount
+      = f.label :from_amount, 'Amount'
+      = f.text_field :from_amount, :pattern => "\\d*"
+    .field.currency
+      = f.select :currency, all_currencies, :selected => @selected_currency
+    .field.entry-type
+      = f.select :entry_type, [['Expense', 0], ['Income', 1]]
+  .row
+    .field.category
+      = f.label :category_id
+      = f.select :category_id, options_from_collection_for_select(@categories, 'id', :with_root, (@entry.category.id if @entry.category))
+      %a#select-category{href: '#'}
+        Select Category
+  .row
+    .field
+      = f.label :date
+      = f.date_field :date, :value => Time.now.strftime('%Y-%m-%d')
   .actions
     = f.submit 'Save'

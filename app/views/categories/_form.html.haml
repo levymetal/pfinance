@@ -5,13 +5,15 @@
       %ul
         - @category.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :parent_id, 'Parent'
-    =# f.select :parent_id, Category.all.map{ |c| [c.name, c.id, {'data-parent' => c.parent_id}] }
-    = f.collection_select :parent_id, @categories, :id, :name, :include_blank => true
+  
+  .row
+    .field
+      = f.label :name
+      = f.text_field :name, :placeholder => "Category Name"
+  .row
+    .field
+      = f.label :parent_id, 'Parent'
+      =# f.select :parent_id, Category.all.map{ |c| [c.name, c.id, {'data-parent' => c.parent_id}] }
+      = f.collection_select :parent_id, @categories, :id, :name, :include_blank => true
   .actions
     = f.submit 'Save'
