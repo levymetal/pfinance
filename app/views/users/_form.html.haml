@@ -5,25 +5,29 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
+  
+  .row
+    .field
+      = f.label :email
+      = f.text_field :email
+  
+  .row
+    .field
+      = f.label :time_zone
+      = f.time_zone_select :time_zone, ActiveSupport::TimeZone.all
 
-  .field
-    = f.label :email
-    = f.text_field :email
+  .row
+    .field
+      = f.label :currency
+      = f.select :currency, [['AUD'], ['GBP'], ['USD']]
 
-  .field
-    = f.label :time_zone
-    = f.time_zone_select :time_zone, ActiveSupport::TimeZone.all
+  .row
+    .field
+      = f.label :use_last_currency
+      = f.check_box :use_last_currency
 
-  .field
-    = f.label :currency
-    = f.select :currency, [['AUD'], ['GBP'], ['USD']]
-
-  .field
-    = f.label :use_last_currency
-    = f.check_box :use_last_currency
-
-    %p
-      Ticking this box uses the last used currency for new entries instead of the default currency. This is useful for travelling to avoid changing the currency for every new entry.
+      %p
+        Ticking this box uses the last used currency for new entries instead of the default currency. This is useful for travelling to avoid changing the currency for every new entry.
 
   .actions
     = f.submit 'Save'

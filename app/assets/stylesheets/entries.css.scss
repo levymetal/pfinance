@@ -6,8 +6,7 @@
 
 #content {
   #new_entry, .edit_entry {
-    &.new_entry {
-      padding: 10px 15px 0;
+    &#new_entry {
 
       #entry_category_id {
         display: none;
@@ -41,15 +40,12 @@
     }
 
     #entry_from_amount {
-      width: 64px;
+      width: 80px;
       margin-right: 4px;
     }
-    
-    
   }
 
   .month-stats {
-    padding-top: 15px;
     text-align: center;
 
     h2 {
@@ -57,7 +53,7 @@
     }
 
     #money-bar {
-      margin-top: 20px;
+      margin-top: 1em;
       position: relative;
       height: 15px;
 
@@ -85,7 +81,6 @@
     .expenses, .income {
       float: left;
       width: 50%;
-      padding-top: 10px;
 
       &.expenses {
         color: #FF6F70;
@@ -105,6 +100,7 @@
           &.num {
             display: block;
             font-size: 2em;
+            font-weight: 700;
           }
         }      
       }
@@ -112,8 +108,7 @@
   }
 
   #home-category-wrapper {
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 1em;
   }
 
   #months {
@@ -121,22 +116,32 @@
 
     a {
       display: block;
-      padding: 1em 20px;
+      padding: 1em 0;
+
+      &:active {
+        background: $active;
+      }
     }
 
     li {
       border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border: 0;
+      }
     }
 
     h2 {
       float: left;
-      margin-top: .9em;
+      font-size: 2em;
     }
 
     h3 {
       float: right;
       // margin-top: -0.1em;
       font-size: 2em;
+      font-weight: 700;
+      color: #FF6F70;
     }
   }
 }
@@ -144,18 +149,17 @@
 #months-wrapper {
   position: relative;
   overflow: hidden;
-  margin: 0 10px;
 
-  .month-list {
-    float: left;
-    width: 50%;
-  }
+  // .month-list {
+  //   float: left;
+  //   width: 50%;
+  // }
 
   .inner {
-    @include transition(transform 0.6s);
-    @include translateX(0);
+    // @include transition(transform 0.6s);
+    // @include translateX(0);
     position: relative;
-    width: 200%;
+    // width: 200%;
   }
 
   &.categories {
@@ -163,6 +167,14 @@
       a.categories {
         opacity: 1;
       }
+    }
+
+    #month-categories {
+      display: block;
+    }
+
+    #month-dates {
+      display: none;
     }
   }
 
@@ -178,7 +190,15 @@
     }
 
     .inner {
-      @include translateX(-50%);
+      // @include translateX(-50%);
+    }
+
+    #month-categories {
+      display: none;
+    }
+
+    #month-dates {
+      display: block;
     }
   }
 
@@ -223,13 +243,16 @@
     position: relative;
     display: block;
     padding: .8em 0;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid $border;
+
+    &:active {
+      background: $active;
+    }
   }
 
   ul {
     a {
       margin-left: 1.6em;
-      color: #999;
     }
   }
 
@@ -250,14 +273,21 @@
   }
 
   &#month-categories {
+    color: #fff;
+    font-size: .8em;
+
     .root-category, .sub-category {
-      background: rgba(255, 179, 44, 0.2);
+      background: rgba(0, 172, 196, 0.6);
       padding: 7px;
       position: relative;
       margin-bottom: 8px;
 
       &.sub-category {
-        font-size: .8em;
+        background: rgba(0, 109, 196, 0.6);
+
+        .percentage-bar {
+          background: rgba(0, 109, 196, 0.7);
+        }
       }
     }
 
@@ -266,7 +296,7 @@
       top: 0;
       left: 0;
       height: 100%;
-      background: rgba(255, 179, 44, 0.32);
+      background: rgba(0, 172, 196, 0.7);
     }
 
     h2, h3 {
@@ -304,15 +334,26 @@
   }
 
   &#month-dates {
+    display: none;
+
     div {
       position: relative;
       display: block;
-      padding: .8em 0;
-      border-bottom: 1px solid #EEE;
+      padding: .8em 0 0;
+      // border-bottom: 1px solid $border;
     }
 
     h3 {
       right: 32px;
+    }
+
+    > li > div > h2 {
+      font-size: .75em;
+      text-transform: uppercase;
+      padding: 10px 0;
+      border-bottom: 1px solid $border;
+      float: none;
+      font-weight: 700;
     }
 
     .icon-chevron-right {
@@ -325,15 +366,20 @@
 }
 
 .edit_entry {
-  padding-top: 15px;
+  #entry_category_id {
+    width: 200px;
+  }
 }
 
 #select-category {
-  margin: 5px 0 5px 80px;
-  padding: .7em 0.4em;
-  display: block;
-  color: #000;
-  background: #eee;
+  margin: 3px 0;
+  padding: .4em 0.4em;
+  box-sizing: border-box;
+  height: 32px;
+  line-height: 1.4em;
+  display: inline-block;
+  color: #666;
+  background: #fff;
 }
 
 #category-overlay {
@@ -342,7 +388,7 @@
   left: 0;
   right: 0;
   top: 0;
-  padding: 0 20px;
+  padding: 0 10px;
   min-height: 100%;
   background: #fff;
   z-index: 100;
@@ -354,8 +400,12 @@
   #category-list {
     li {
       padding: .8em 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $border;
       cursor: pointer;
+
+      &:active {
+        background: $active;
+      }
     }
   }
 

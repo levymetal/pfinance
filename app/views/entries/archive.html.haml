@@ -1,6 +1,8 @@
-%ul#months
-  - @entries_by_month.each do |month, entries|
-    %li
-      = link_to month_entries_path(month.strftime("%Y"), month.strftime("%m")), :class => 'clearfix' do
-        %h2= month.strftime("%B %Y")
-        %h3= number_format entries.to_a.sum &:amount
+.content
+  %h1.section-title Months Archive
+  %ul#months
+    - @entries_by_month.each do |month, entries|
+      %li
+        = link_to month_entries_path(month.strftime("%Y"), month.strftime("%m")), :class => 'clearfix' do
+          %h2= month.strftime("%h '%y")
+          %h3= number_format entries.to_a.sum &:amount

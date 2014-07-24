@@ -1,16 +1,17 @@
-%ul#categories
-  - @categories.each do |category|
-    %li
-      = link_to edit_category_path(category) do
-        = category.name
-        %i.icon-chevron-right
-      - unless category.children.empty?
-        %ul
-          - category.children.each do |sub_category|
-            %li
-              = link_to edit_category_path(sub_category) do
-                = sub_category.name
-                %i.icon-chevron-right
-
 .content
-  = link_to 'New Category', new_category_path, :class => 'big-button'
+  %h1.section-title Categories
+  %ul#categories
+    - @categories.each do |category|
+      %li
+        = link_to edit_category_path(category) do
+          = category.name
+          %i.icon-chevron-right
+        - unless category.children.empty?
+          %ul
+            - category.children.each do |sub_category|
+              %li
+                = link_to edit_category_path(sub_category) do
+                  = sub_category.name
+                  %i.icon-chevron-right
+
+    = link_to 'New Category', new_category_path, :class => 'big-button'

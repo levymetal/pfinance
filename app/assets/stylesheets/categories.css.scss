@@ -5,18 +5,20 @@
 @import 'mixins';
 
 #categories {
-  padding: 0 20px;
-
-  a {
+  a:not(.big-button) {
     position: relative;
     display: block;
     padding: .8em 0;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid $border;
     
     .icon-chevron-right {
       position: absolute;
       right: 0;
       color: #ccc;
+    }
+
+    &:active {
+      background: $active;
     }
   }
 
@@ -29,5 +31,5 @@
 }
 
 #new_category, form.edit_category {
-  padding-top: 20px;
+  
 }

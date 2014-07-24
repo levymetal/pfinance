@@ -59,6 +59,7 @@ $(document).on 'ready page:load', ->
     $('#category-name').blur()
     $('#category-overlay').removeClass('visible')
     $('html,body').animate({scrollTop: 0}, 0)
+
     $('#select-category').html( $elem.html() )
     $('#entry_category_id').val( $elem.attr('data-value') )
 
@@ -78,3 +79,6 @@ $(document).on 'ready page:load', ->
     $options.each ->
       if $(this).text().toLowerCase().indexOf( term ) != -1
         $('#category-list').append('<li data-value="' + $(this).val() + '">' + $(this).html() + '</li>')
+
+    if ( $('#category-list').html() == '' )
+        $('#category-list').append('<li>No results found</li>')
