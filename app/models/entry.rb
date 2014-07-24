@@ -8,6 +8,8 @@ class Entry < ActiveRecord::Base
   scope :expenses, -> { where(entry_type: 0) }
   scope :income, -> { where(entry_type: 1) }
 
+  validates :from_amount, numericality: { greater_than: 0 }
+
   def convert_currency
     require 'open-uri'
 

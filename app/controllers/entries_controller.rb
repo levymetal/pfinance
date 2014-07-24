@@ -38,7 +38,7 @@ class EntriesController < ApplicationController
   end
 
   def archive
-    @entries_by_month = current_user.entries.expenses.group_by { |entry| entry.date.beginning_of_month }
+    @entries_by_month = current_user.entries.group_by { |entry| entry.date.beginning_of_month }
   end
 
   def month
@@ -80,7 +80,7 @@ class EntriesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Entry created, nice.' }
         format.json { render action: 'show', status: :created, location: root_path }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to root_path }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
