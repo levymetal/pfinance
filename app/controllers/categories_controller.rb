@@ -27,6 +27,8 @@ class CategoriesController < ApplicationController
 
     @entries_count = @category.entries.count
     @children_count = @category.children.count
+
+    @previous_page = categories_path
   end
 
   # POST /categories

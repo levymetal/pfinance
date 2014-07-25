@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
   has_ancestry
   # belongs_to :ancestry
 
+  validates :name, :presence => true
+
   has_many :entries
 
   # default_scope includes(:ancestry)

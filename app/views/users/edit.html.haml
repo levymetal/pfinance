@@ -2,3 +2,5 @@
   %h1.section-title Settings
 
   = render 'form'
+
+  = link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => 'big-button orange'

@@ -2,7 +2,8 @@ module ApplicationHelper
   def currencies
     currencies = { 'AUD' => '$', 
                    'GBP' => '£', 
-                   'USD' => '$'
+                   'USD' => '$',
+                   'EUR' => '€'
                  }
   end
 
