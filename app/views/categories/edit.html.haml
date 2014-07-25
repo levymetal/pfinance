@@ -2,3 +2,9 @@
   %h1.section-title Edit category
 
   = render 'form'
+  
+  - if @entries_count == 0 && @children_count == 0
+    = link_to 'Delete', @category, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'big-button delete'
+  - else
+    %br
+    %p You cannot delete a category that has entries or sub-categories associated with it.
