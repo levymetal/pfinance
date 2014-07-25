@@ -26,8 +26,8 @@
 
     .currency {
       float: left;
-      width: 52px;
       margin-right: 4px;
+      width: 52px;
     }
 
     .entry-type {
@@ -40,8 +40,8 @@
     }
 
     #entry_from_amount {
-      width: 80px;
       margin-right: 4px;
+      width: 80px;
     }
   }
 
@@ -53,8 +53,8 @@
     }
 
     #money-bar {
-      margin-top: 1em;
       position: relative;
+      margin-top: 1em;
       height: 15px;
 
       .i, .e {
@@ -68,8 +68,8 @@
         }
 
         &.e {
-          background: #FF6F70;
           right: 0;
+          background: #FF6F70;
         }
 
         &.front {
@@ -94,13 +94,13 @@
         padding-top: 10px;
 
         span {
-          font-size: .75em;
           text-transform: uppercase;
+          font-size: .75em;
 
           &.num {
             display: block;
-            font-size: 2em;
             font-weight: 700;
+            font-size: 2em;
           }
         }      
       }
@@ -133,21 +133,21 @@
 
     h2 {
       margin-top: 10px;
-      font-size: .8em;
-      font-weight: 700;
-      text-transform: uppercase;
       padding-bottom: 10px;
       border-bottom: 1px solid $border;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .8em;
     }
 
     h3 {
       float: left;
+      margin-top: 10px;
       width: 50%;
-      font-size: 2em;
-      font-weight: 700;
       color: #8ECC55;
       text-align: center;
-      margin-top: 10px;
+      font-weight: 700;
+      font-size: 2em;
 
       &.expenses {
         color: #FF6F70;
@@ -166,10 +166,10 @@
   // }
 
   .inner {
+    position: relative;
     // @include transition(transform 0.6s);
     // @include translateX(0);
-    position: relative;
-    // width: 200%;
+    // width: 200%
   }
 
   &.categories {
@@ -200,7 +200,7 @@
     }
 
     .inner {
-      // @include translateX(-50%);
+      // @include translateX(-50%)
     }
 
     #month-categories {
@@ -234,7 +234,6 @@
 
     &:before {
       @include transition(all 0.6s);
-      @include border-radius(10px);
       @include translateX(0);
       position: absolute;
       top: 1px;
@@ -244,6 +243,7 @@
       height: 24px;
       background: #fefefe;
       content: " ";
+      @include border-radius(10px);
     }
   }
 }
@@ -271,9 +271,9 @@
   }
 
   h3 {
+    @include transition(opacity 0.3s);
     position: absolute;
     right: 0;
-    @include transition(opacity 0.3s);
 
     &.day {
       span {
@@ -287,10 +287,10 @@
     font-size: .8em;
 
     .root-category, .sub-category {
-      background: rgba(0, 172, 196, 0.6);
-      padding: 7px;
       position: relative;
       margin-bottom: 8px;
+      padding: 7px;
+      background: rgba(0, 172, 196, 0.6);
 
       &.sub-category {
         background: rgba(0, 109, 196, 0.6);
@@ -314,8 +314,8 @@
     }
   
     .name {
-      font-weight: bold;
       margin-bottom: .3em;
+      font-weight: bold;
     }
 
     .percentage {
@@ -350,7 +350,7 @@
       position: relative;
       display: block;
       padding: .8em 0 0;
-      // border-bottom: 1px solid $border;
+      // border-bottom: 1px solid $border
     }
 
     h3 {
@@ -358,19 +358,19 @@
     }
 
     > li > div > h2 {
-      font-size: .75em;
-      text-transform: uppercase;
+      float: none;
       padding: 10px 0;
       border-bottom: 1px solid $border;
-      float: none;
+      text-transform: uppercase;
       font-weight: 700;
+      font-size: .75em;
     }
 
     .icon-chevron-right {
       position: absolute;
+      top: 0;
       right: 0;
       color: #ccc;
-      top: 0;
     }
   }
 }
@@ -382,26 +382,26 @@
 }
 
 #select-category {
+  display: inline-block;
+  box-sizing: border-box;
   margin: 3px 0;
   padding: .4em 0.4em;
-  box-sizing: border-box;
   height: 32px;
-  line-height: 1.4em;
-  display: inline-block;
-  color: #666;
   background: #fff;
+  color: #666;
+  line-height: 1.4em;
 }
 
 #category-overlay {
-  display: none;
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
   padding: 0 10px;
   min-height: 100%;
   background: #fff;
-  z-index: 100;
 
   &.visible {
     display: block;
