@@ -1,0 +1,19 @@
+.content
+  %h1.section-title
+    Change Password
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+    = devise_error_messages!
+    %div.row
+      = f.label :password
+      = f.password_field :password, :autocomplete => "off", :placeholder => "New Password"
+    %div.row
+      = f.label :password_confirmation, 'Confirm'
+      = f.password_field :password_confirmation, :placeholder => "Confirm New Password"
+    %div.row
+      = f.label :current_password
+      = f.password_field :current_password, :placeholder => "Current Password"
+    %div= f.submit "Update"
+  / %h3 Cancel my account
+  / %p
+  /   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+  / = link_to "Back", :back
