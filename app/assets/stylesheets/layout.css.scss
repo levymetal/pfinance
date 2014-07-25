@@ -1,14 +1,14 @@
 @import 'compass';
 @import 'mixins';
 
-body {
+body { 
+  overflow-x: hidden;
+  background: #f3f3f3;
   color: #222;
   font-size: 16px;
   font-family: $ubuntu;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: rgba(0,0,0,0); 
-  overflow-x: hidden;
-  background: #f3f3f3;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
   -webkit-user-select: none; /* Disable selection/copy in UIWebView */
 }
@@ -56,9 +56,9 @@ a {
 }
 
 #content {
+  position: relative;
   // padding: 10px 20px;
   padding-top: 1px;
-  position: relative;
   -webkit-transition: opacity 300ms;
   -moz-transition: opacity 300ms;
   -ms-transition: opacity 300ms;
@@ -73,12 +73,12 @@ body.loading #content {
 .content {
   margin: 1em 0;
   padding: 10px;
-  background: #fff;
   border: 1px solid $border;
+  background: #fff;
 
   .page-title {
-    font-size: 2em;
     text-align: center;
+    font-size: 2em;
   }
 }
 
@@ -87,12 +87,12 @@ body.loading #content {
 }
 
 .section-title {
-  font-size: .8em;
-  text-align: center;
-  border-bottom: 1px solid $border;
   padding-bottom: 10px;
+  border-bottom: 1px solid $border;
+  text-align: center;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: .8em;
 }
 
 label {
@@ -106,12 +106,12 @@ input, select {
   // -webkit-box-sizing: border-box;
   // -moz-box-sizing:border-box;
   // box-sizing:border-box;
+  box-sizing: border-box;
   margin: 3px 0;
   padding: .4em;
+  height: 32px;
   outline: none;
   border: none;
-  box-sizing: border-box;
-  height: 32px;
   border-radius: 0;
   background: #fff;
   color: #666;
@@ -129,14 +129,14 @@ input[type="submit"], .big-button {
   box-sizing:content-box;
   margin: 10px -10px 0;
   padding: .9em 10px;
-  height: auto;
   width: 100%;
+  height: auto;
   background: $green;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
-  font-size: .8em;
   font-weight: 700;
+  font-size: .8em;
 
   &.delete {
     background: $red;
@@ -148,7 +148,7 @@ input[type="checkbox"] {
 }
 
 input[type="date"] {
-  // -webkit-appearance: textfield;
+  // -webkit-appearance: textfield
 }
 
 p.notice, p.alert {

@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #sign-in.content {
-  text-align: center;
   padding: 20px;
+  text-align: center;
 
   label {
     display: none;
@@ -15,9 +15,9 @@
 
     label {
       display: inline-block;
+      float: none;
       margin: 0;
       width: auto;
-      float: none;
       color: #999;
     }
 
@@ -27,10 +27,10 @@
   }
 
   #user_email, #user_password {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    color: #666;
     padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    color: #666;
     text-align: center;
     font-size: 1.2em;
   }
