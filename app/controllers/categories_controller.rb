@@ -24,6 +24,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @categories = current_user.categories
+
+    @entries_count = @category.entries.count
+    @children_count = @category.children.count
   end
 
   # POST /categories
