@@ -47,13 +47,23 @@ class EntriesController < ApplicationController
     @entries = current_user.entries.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
     @expense_entries = current_user.entries.expenses.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
     @income_entries = current_user.entries.income.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
-    @entries_by_date = @entries.group_by { |entry| entry.date }
     @expense_entries_by_category = @expense_entries.group_by { |entry| entry.category.root }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse
     @expenses_total = @expense_entries.to_a.sum &:amount
     @income_total = @income_entries.to_a.sum &:amount
 
     # calculate number of days based on whether this is the current month or not
     @days = ( @month.end_of_month == Time.now.end_of_month ) ? Time.now.day : @month.end_of_month.day
+
+    @previous_page = archive_entries_path
+  end
+
+  def month_entries
+    @month = Time.new(params[:year], params[:month])
+
+    @entries = current_user.entries.where("date >= ? AND date <= ?", @month.beginning_of_month, @month.end_of_month)
+    @entries_by_date = @entries.group_by { |entry| entry.date }
+
+    @previous_page = month_entries_path
   end
 
   # GET /entries/new

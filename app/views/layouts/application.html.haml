@@ -33,12 +33,12 @@
   %body.loading
     #wrapper
       #top-links.clearfix
-        / = link_to_back
+        = link_to_back @previous_page
         = nav_link '', root_path, 'icon-home'
         = nav_link '', archive_entries_path, 'icon-calendar'
         = nav_link '', categories_path, 'icon-cabinet'
-        = link_to '', ''
-        = link_to '', settings_path, :class => 'icon-cog'
+        =# link_to '', ''
+        = nav_link '', settings_path, 'icon-cog settings'
       - if notice
         %p.notice= notice
       - if alert

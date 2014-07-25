@@ -21,48 +21,29 @@
         %span Total
         %span.num= number_format @expenses_total
 
+  %ul#month-categories.month-list
+    - @expense_entries_by_category.each do |category, entries|
+      %li
+        .clearfix.root-category
+          .percentage-bar{ :style => 'width: ' + ( number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0 ) }
+          %h2.name= category.name
+          %h3.percentage= number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0
+          %h3.total= number_format entries.to_a.sum &:amount
+          %h3.day
+            = number_format ( entries.to_a.sum &:amount ) / @days
+            %span / day
+          
 
-  #months-wrapper.clearfix.categories
-    #month-toggle
-      %a.categories{:href => '#'} Categories
-      %a.dates{:href => '#'} Days
-
-    .inner
-      %ul#month-categories.month-list
-        - @expense_entries_by_category.each do |category, entries|
-          %li
-            .clearfix.root-category
-              .percentage-bar{ :style => 'width: ' + ( number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0 ) }
-              %h2.name= category.name
-              %h3.percentage= number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0
-              %h3.total= number_format entries.to_a.sum &:amount
-              %h3.day
-                = number_format ( entries.to_a.sum &:amount ) / @days
-                %span / day
-              
-
-            %ul
-              - entries.group_by { |entry| entry.category }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse.each do |subcategory, subentries|
-                %li
-                  .clearfix.sub-category
-                    .percentage-bar{ :style => 'width: ' + ( number_to_percentage ( subentries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0 ) }
-                    %h2.name= subcategory.name
-                    %h3.percentage= number_to_percentage ( subentries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0
-                    %h3.total= number_format subentries.to_a.sum &:amount
-                    %h3.day
-                      = number_format ( subentries.to_a.sum &:amount ) / @days
-                      %span / day
-
-      %ul#month-dates.month-list
-        - @entries_by_date.each do |date, entries|
-          %li
-            .clearfix
-              %h2= date.strftime("%A #{date.day.ordinalize}")
-            
-            %ul
-              - entries.each do |entry|
-                %li
-                  = link_to edit_entry_path(entry), :class => 'clearfix' do
-                    %h2= entry.category.name
-                    %h3= number_format entry.amount
-                    .icon-chevron-right
+        %ul
+          - entries.group_by { |entry| entry.category }.sort_by { |category, entries| entries.to_a.sum &:amount }.reverse.each do |subcategory, subentries|
+            %li
+              .clearfix.sub-category
+                .percentage-bar{ :style => 'width: ' + ( number_to_percentage ( subentries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0 ) }
+                %h2.name= subcategory.name
+                %h3.percentage= number_to_percentage ( subentries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0
+                %h3.total= number_format subentries.to_a.sum &:amount
+                %h3.day
+                  = number_format ( subentries.to_a.sum &:amount ) / @days
+                  %span / day
+  
+  = link_to "All entries for #{@month.strftime('%B')}", month_entries_entries_path, :class => 'big-button orange'

@@ -64,12 +64,12 @@
         height: 100%;
 
         &.i {
-          background: #8ECC55;
+          background: $green;
         }
 
         &.e {
           right: 0;
-          background: #FF6F70;
+          background: $red;
         }
 
         &.front {
@@ -83,11 +83,11 @@
       width: 50%;
 
       &.expenses {
-        color: #FF6F70;
+        color: $red;
       }
 
       &.income {
-        color: #8ECC55;
+        color: $green;
       }
 
       .average, .total {
@@ -144,106 +144,14 @@
       float: left;
       margin-top: 10px;
       width: 50%;
-      color: #8ECC55;
+      color: $green;
       text-align: center;
       font-weight: 700;
       font-size: 2em;
 
       &.expenses {
-        color: #FF6F70;
+        color: $red;
       }
-    }
-  }
-}
-
-#months-wrapper {
-  position: relative;
-  overflow: hidden;
-
-  // .month-list {
-  //   float: left;
-  //   width: 50%;
-  // }
-
-  .inner {
-    position: relative;
-    // @include transition(transform 0.6s);
-    // @include translateX(0);
-    // width: 200%
-  }
-
-  &.categories {
-    #month-toggle { 
-      a.categories {
-        opacity: 1;
-      }
-    }
-
-    #month-categories {
-      display: block;
-    }
-
-    #month-dates {
-      display: none;
-    }
-  }
-
-  &.dates {
-    #month-toggle {
-      a.dates {
-        opacity: 1;
-      }
-
-      &:before {
-        @include translateX(100%);
-      }
-    }
-
-    .inner {
-      // @include translateX(-50%)
-    }
-
-    #month-categories {
-      display: none;
-    }
-
-    #month-dates {
-      display: block;
-    }
-  }
-
-  #month-toggle {
-    @include border-radius(10px);
-    position: relative;
-    margin: 30px 0 20px;
-    padding: 1px 0;
-    height: 24px;
-    background: #ddd;
-
-    a {
-      position: relative;
-      display: block;
-      float: left;
-      padding: 4px 0;
-      width: 50%;
-      height: 16px;
-      color: #999;
-      text-align: center;
-      opacity: .5;
-    }
-
-    &:before {
-      @include transition(all 0.6s);
-      @include translateX(0);
-      position: absolute;
-      top: 1px;
-      right: 50%;
-      left: 1px;
-      display: block;
-      height: 24px;
-      background: #fefefe;
-      content: " ";
-      @include border-radius(10px);
     }
   }
 }
@@ -254,6 +162,7 @@
     display: block;
     padding: .8em 0;
     border-bottom: 1px solid $border;
+    color: #666;
 
     &:active {
       background: $active;
@@ -285,6 +194,7 @@
   &#month-categories {
     color: #fff;
     font-size: .8em;
+    margin-top: 1em;
 
     .root-category, .sub-category {
       position: relative;
@@ -293,10 +203,10 @@
       background: rgba(0, 172, 196, 0.6);
 
       &.sub-category {
-        background: rgba(0, 109, 196, 0.6);
+        background: rgba(146, 33, 199, 0.5);
 
         .percentage-bar {
-          background: rgba(0, 109, 196, 0.7);
+          background: rgba(146, 33, 199, 0.6);
         }
       }
     }
@@ -344,8 +254,6 @@
   }
 
   &#month-dates {
-    display: none;
-
     div {
       position: relative;
       display: block;
@@ -353,8 +261,23 @@
       // border-bottom: 1px solid $border
     }
 
+    li {
+      &.expense {
+        h3 {
+          color: $red;
+        }
+      }
+
+      &.income {
+        h3 {
+          color: $green;
+        }
+      }
+    }
+
     h3 {
       right: 32px;
+      font-weight: 700;
     }
 
     > li > div > h2 {
@@ -370,7 +293,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      color: #ccc;
+      color: #CCC;
     }
   }
 }

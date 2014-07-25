@@ -26,20 +26,6 @@ $(document).on 'ready page:load', ->
       current = current.toFixed(2).toString()
       $entry_amount.val( ( parseFloat( current.substring(0, current.length - 1) ) / 10 ).toFixed(2) )
 
-  $('a', '#month-toggle').on 'click', (e) ->
-    e.preventDefault() 
-
-    if $(this).hasClass('categories') 
-      $('#months-wrapper')
-        .removeClass('dates')
-        .addClass('categories')
-    else
-      $('#months-wrapper')
-        .addClass('dates')
-        .removeClass('categories')
-
-    $('html, body').animate({scrollTop: $(this).offset().top - 65}, 600)
-
   $('.root-category', '#month-categories').on 'click', (e) ->
     e.preventDefault()
 
