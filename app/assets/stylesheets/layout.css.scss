@@ -168,9 +168,20 @@ input[type="date"] {
   // -webkit-appearance: textfield
 }
 
+@-webkit-keyframes slideup {
+  0% { margin-top: 0; }
+  100% { margin-top: -36px; }
+}
+
 p.notice, p.alert {
   padding: 10px;
+  left: 0;
+  right: 0;
   color: #fff;
+  z-index: 1;
+
+  -webkit-animation: slideup 500ms 2s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 p.notice {
