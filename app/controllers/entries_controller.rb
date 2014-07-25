@@ -85,7 +85,18 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     # @entry = Entry.new(entry_params)
-    @entry = current_user.entries.build(entry_params)
+    ep = entry_params
+
+    if ( ep[:category_id] == nil && params[:new_category_name] != '' )
+      new_category = current_user.categories.new(:name => params[:new_category_name])
+      new_category.save
+
+      ep[:category_id] = new_category.id
+
+      p ep[:category_id]
+    end
+
+    @entry = current_user.entries.build(ep)
 
     respond_to do |format|
       if @entry.save

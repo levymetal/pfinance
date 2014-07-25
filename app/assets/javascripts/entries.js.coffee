@@ -46,7 +46,8 @@ $(document).on 'ready page:load', ->
     $('#category-overlay').removeClass('visible')
     $('html,body').animate({scrollTop: 0}, 0)
 
-    $('#select-category').html( $elem.html() )
+    $('#select-category').html( $elem.find('span').text() )
+    $('#new_category_name').val( $elem.find('span').text() )
     $('#entry_category_id').val( $elem.attr('data-value') )
 
   $('#category-list').on 'click', 'li', (e) ->
@@ -64,7 +65,7 @@ $(document).on 'ready page:load', ->
     $('#category-list').html('')
     $options.each ->
       if $(this).text().toLowerCase().indexOf( term ) != -1
-        $('#category-list').append('<li data-value="' + $(this).val() + '">' + $(this).html() + '</li>')
+        $('#category-list').append('<li data-value="' + $(this).val() + '"><span>' + $(this).html() + '</span></li>')
 
     if ( $('#category-list').html() == '' )
-        $('#category-list').append('<li>No results found</li>')
+        $('#category-list').append('<li>Create "<span>' + $(this).val() + '</span>"</li>')
