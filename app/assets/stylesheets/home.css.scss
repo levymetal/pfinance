@@ -1,0 +1,17 @@
+@import 'compass';
+@import 'mixins';
+
+#home {
+  // background: #fff;
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 700;
+    padding: 0 1em 1.5em;
+  }
+
+  .content {
+    padding: 0 10px 10px;
+  }
+}
