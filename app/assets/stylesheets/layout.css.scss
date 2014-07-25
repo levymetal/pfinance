@@ -191,3 +191,9 @@ p.notice {
 p.alert {
   background: $red;
 }
+
+#error_explanation {
+  padding: 1em;
+  font-size: .75em;
+  color: $red;
+}

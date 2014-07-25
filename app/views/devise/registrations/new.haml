@@ -14,6 +14,10 @@
       = f.label :password_confirmation
       %br/
       = f.password_field :password_confirmation, :placeholder => "Confirm Password"
+    %div
+      = f.label :currency
+      %br
+      = f.select :currency, all_currencies
       %br/
       %br/
     %div= f.submit "Sign up"
