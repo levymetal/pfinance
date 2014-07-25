@@ -7,6 +7,8 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
+    redirect_to home_entries_path
+
     @entries = current_user.entries.expenses
   end
 
@@ -100,7 +102,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to root_path, notice: 'Entry created, nice.' }
+        format.html { redirect_to root_path, notice: 'Entry created.' }
         format.json { render action: 'show', status: :created, location: root_path }
       else
         format.html { redirect_to root_path }
@@ -114,7 +116,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to edit_entry_path(@entry), notice: 'Entry updated, nice.' }
+        format.html { redirect_to edit_entry_path(@entry), notice: 'Entry updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

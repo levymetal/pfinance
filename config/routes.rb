@@ -3,6 +3,7 @@ Pfinance::Application.routes.draw do
 
   resources :entries do
     collection do
+      get 'home', as: :home
       get 'archive'
       get 'archive/:year/:month' => 'entries#month', as: :month
       get 'archive/:year/:month/entries' => 'entries#month_entries', as: :month_entries
@@ -23,7 +24,7 @@ Pfinance::Application.routes.draw do
   devise_for :views
   resources :users
 
-  root :to => 'entries#home'
+  root :to => 'pages#home'
 
   get 'settings' => 'users#settings'
 
