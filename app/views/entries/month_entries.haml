@@ -1,0 +1,19 @@
+.content
+  .month-stats.clearfix
+    %h1.section-title
+      = @month.strftime('%B %Y')
+      Entries
+
+  %ul#month-dates.month-list
+    - @entries_by_date.each do |date, entries|
+      %li
+        .clearfix
+          %h2= date.strftime("%A #{date.day.ordinalize}")
+        
+        %ul
+          - entries.each do |entry|
+            %li{:class => (entry.entry_type == 0) ? 'expense' : 'income' }
+              = link_to edit_entry_path(entry), :class => 'clearfix' do
+                %h2= entry.category.name
+                %h3= number_format entry.amount
+                .icon-chevron-right

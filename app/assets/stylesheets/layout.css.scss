@@ -48,6 +48,14 @@ a {
     text-align: center;
     font-size: 24px;
     opacity: .7;
+
+    &.settings {
+      float: right;
+    }
+
+    &.hidden {
+      display: none;
+    }
   }
 
   a.active {
@@ -140,6 +148,10 @@ input[type="submit"], .big-button {
 
   &.delete {
     background: $red;
+  }
+
+  &.orange {
+    background: $orange;
   }
 }
 

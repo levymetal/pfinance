@@ -20,11 +20,8 @@ module ApplicationHelper
     end
   end
 
-  def link_to_back
-    if request.referer
-      link_to '', request.referer, :class => 'icon-chevron-left'
-    else
-      render(:inline => "<div></div>")
-    end
+  def link_to_back(page)
+    class_name = 'icon-chevron-left' + ( page ? '' : ' hidden' )
+    link_to '', page, :class => class_name
   end
 end
