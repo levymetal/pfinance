@@ -77,6 +77,8 @@ class EntriesController < ApplicationController
     @categories = current_user.categories
 
     @selected_currency = @entry.currency
+
+    @previous_page = month_entries_entries_path( @entry.date.year, @entry.date.month )
   end
 
   # POST /entries

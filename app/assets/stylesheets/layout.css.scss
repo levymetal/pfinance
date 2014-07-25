@@ -153,9 +153,14 @@ input[type="submit"], .big-button {
   &.orange {
     background: $orange;
   }
+
+  &.blue {
+    background: $blue;
+  }
 }
 
 input[type="checkbox"] {
+  height: auto;
   -webkit-appearance: checkbox;
 }
 
