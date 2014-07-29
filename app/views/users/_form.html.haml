@@ -23,11 +23,11 @@
 
   .row
     .field
-      = f.label :use_last_currency
-      = f.check_box :use_last_currency
+      = f.label :default_currency
+      = f.select :default_currency, all_currencies
 
       %p
-        Ticking this box uses the last used currency for new entries instead of the default currency. This is useful for travelling to avoid changing the currency for every new entry.
+        This is the currency that is selected by default on new entries. Handy when travelling; if your base currency is AUD and you're travelling the United States, you can set the default currency to USD to avoid having to repeatedly select USD for every new entry.
 
   .actions
     = f.submit 'Save'

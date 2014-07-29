@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :entries
   has_many :categories
 
-  after_create :seed_categories
+  after_create :seed_categories, :set_default_currency
 
   def seed_categories
     food = self.categories.create(:name => 'Food')
@@ -29,5 +29,9 @@ class User < ActiveRecord::Base
     income = self.categories.create(:name => 'Income')
     self.categories.create(:name => 'Salary', :parent => income)
     self.categories.create(:name => 'Other', :parent => income)
+  end
+
+  def set_default_currency
+    self.update(default_currency: self.currency)
   end
 end

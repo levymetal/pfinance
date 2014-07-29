@@ -36,7 +36,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new
     @categories = current_user.categories.recent
 
-    @selected_currency = current_user.use_last_currency ? current_user.entries.first.currency : current_user.currency
+    @selected_currency = current_user.default_currency
   end
 
   def archive
