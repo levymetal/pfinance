@@ -31,6 +31,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body.loading
+    #spinner
     #wrapper
       - if @home_page == nil
         #top-links.clearfix

@@ -30,6 +30,15 @@ a {
   max-width: 600px;
 }
 
+#spinner {
+  opacity: 0;
+  @include transition(opacity 300ms);
+
+  &.loading {
+    opacity: 1;
+  }
+}
+
 // @-webkit-keyframes load {
 //   0% { width: 0; }
 //   100% { width: 80%; }
