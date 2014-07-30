@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ../../../vendor/assets/javascripts/fastclick.min.js
+//= require ../../../vendor/assets/javascripts/spin.min.js
 //= require_tree .
