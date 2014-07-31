@@ -24,6 +24,6 @@
   .row
     .field
       = f.label :date
-      = f.date_field :date, :value => Time.now.strftime('%Y-%m-%d')
+      = f.date_field :date, :value => @entry.date ? @entry.date.strftime('%Y-%m-%d') : Time.zone.now.strftime('%Y-%m-%d') 
   .actions
     = f.submit 'Save'
