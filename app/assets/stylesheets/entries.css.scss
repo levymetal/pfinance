@@ -316,22 +316,22 @@
 }
 
 #category-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   left: 0;
   z-index: 100;
-  // display: none;
+  display: none;
   padding: 0 10px;
   min-height: 100%;
   background: #fafafa;
-  @include transform( translate3d(0, 100%, 0) );
-  @include transition( transform 600ms );
+  // @include transform( translate3d(0, 100%, 0) );
+  // @include transition( transform 600ms );
 
   &.visible {
-    // display: block;
-    position: absolute;
-    @include transform( translateY(0) );  
+    display: block;
+    // position: absolute;
+    // @include transform( translateY(0) );  
   }
 
   #category-list {
