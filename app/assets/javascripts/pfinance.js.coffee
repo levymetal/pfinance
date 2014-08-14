@@ -1,4 +1,4 @@
-$(document).on 'ready page:change page:restore', ->
+$(document).on 'page:change page:restore', ->
   $('body').removeClass('loading')
 
 $(document).on 'page:before-change', ->
@@ -16,6 +16,6 @@ $(document).on 'page:before-change', ->
 
   $('body, #spinner').addClass('loading')
 
-$(document).on 'ready page:change', ->
+$(document).on 'page:change', ->
   $('form').on 'submit', ->
     $('body').addClass('loading')
