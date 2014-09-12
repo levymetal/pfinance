@@ -13,11 +13,11 @@ module ApplicationHelper
     link_to link_text, link_path, :class => class_name      
   end
 
-  def number_format(num)
-    if num < 10
-      "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 2)}"
-    else
+  def number_format(num, fuzzy = true)
+    if num >= 10 and fuzzy
       "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 0)}"
+    else
+      "#{currencies[current_user.currency]}#{number_with_precision(num, precision: 2)}"
     end
   end
 
