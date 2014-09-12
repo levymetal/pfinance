@@ -2,6 +2,13 @@ $(document).on 'page:change page:restore', ->
   $('body').removeClass('loading')
 
 $(document).on 'page:before-change', ->
+  init_loading()
+
+$(document).on 'page:change', ->
+  $('form').on 'submit', ->
+    init_loading()
+
+init_loading = () -> 
   opts =
     length: 13 # The length of each line
     width: 3 # The line thickness
@@ -15,7 +22,3 @@ $(document).on 'page:before-change', ->
   spinner = new Spinner(opts).spin(target)
 
   $('body, #spinner').addClass('loading')
-
-$(document).on 'page:change', ->
-  $('form').on 'submit', ->
-    $('body').addClass('loading')
