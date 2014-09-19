@@ -4,9 +4,8 @@ $(document).on 'page:change page:restore', ->
 $(document).on 'page:before-change', ->
   init_loading()
 
-$(document).on 'page:change', ->
-  $('form').on 'submit', ->
-    init_loading()
+$(document).on 'submit', 'form', ->
+  init_loading()
 
 init_loading = () -> 
   opts =
