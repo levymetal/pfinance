@@ -4,7 +4,7 @@ $(document).on 'page:change page:restore', ->
 $(document).on 'page:before-change', ->
   init_loading()
 
-$(document).on 'submit', 'form', ->
+$(document).on 'click', 'input[type="submit"]', ->
   init_loading()
 
 init_loading = () -> 
