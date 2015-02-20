@@ -26,12 +26,6 @@
         %span Total
         %span.num= number_format @expenses_total
 
-    / .clearfix
-
-    / #money-bar
-    /   .i{:style => 'width: ' + ( number_to_percentage @income_total / (@income_total + @expenses_total) * 100 ) }
-    /   .e{:style => 'width: ' + ( number_to_percentage @expenses_total / (@income_total + @expenses_total) * 100 ) }
-
   #home-category-wrapper
     %ul#month-categories.month-list
       - @expense_entries_by_category.each do |category, entries|
