@@ -28,9 +28,13 @@
 
   #home-category-wrapper
     %ul#month-categories.month-list
+      / - current_percentage = 0
       - @expense_entries_by_category.each do |category, entries|
         %li
           .clearfix.root-category
+            / - width =  ( entries.to_a.sum &:amount ) / @expenses_total * 100 
+            / .percentage-bar{ :style => 'margin-left: ' + ( number_to_percentage current_percentage, precision: 0 ) + '; width: ' + ( number_to_percentage width, precision: 0 ) }
+            / - current_percentage += width
             .percentage-bar{ :style => 'width: ' + ( number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0 ) }
             %h2.name= category.name
             %h3.percentage= number_to_percentage ( entries.to_a.sum &:amount ) / @expenses_total * 100, precision: 0
